@@ -128,6 +128,22 @@
 
   <!-- Template Main Javascript File -->
   <script src="js/main.js"></script>
+	<script>
+		function pilih(that) {
+			$(".tamu").attr('dipilih', 'tidak')
+			$(that).attr('dipilih', 'ya')
+			let selected = $(that).attr('data-jajaran')
+			$("#toSend").val(selected)
+		}
 
+		$("#formTamu").submit(() => {
+			let toSend = $("#toSend").val()
+			if(toSend == "") {
+				alert('Pilih jajaran yang akan ditemui!')
+				return false
+			}
+		})
+	</script>
+	
 </body>
 </html>

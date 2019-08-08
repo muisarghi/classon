@@ -1,6 +1,4 @@
-Thanks for downloading this theme!
+For Onklas
 
-Theme Name: EstateAgency
-Theme URL: https://bootstrapmade.com/real-estate-agency-bootstrap-template/
-Author: BootstrapMade.com
-Author URL: https://bootstrapmade.com
+Template Samudra Pasai
+20190805

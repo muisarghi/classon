@@ -9,7 +9,7 @@ include 'layout/sekolah.php';
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>SMA Negeri Indonesia</title>
+  <title><?php echo $namaskol; ?></title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -33,7 +33,10 @@ include 'layout/sekolah.php';
 
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
-
+	<link rel="stylesheet" href="css/custom.css">
+	<style>
+		.cover { width: 100%; }
+	</style>
   <link rel="shortcut icon" href="img/tutwuri.png" type="image/png">
 
   <!-- =======================================================
@@ -79,7 +82,7 @@ include 'layout/sekolah.php';
         <span></span>
         <span></span>
       </button>
-      <a class="navbar-brand text-brand" href="index.html"><span class="color-b">SMA</span> Negeri Indonesia</a>
+      <a class="navbar-brand text-brand" href="index.php"><span class="color-b"><?php echo $namaskol; ?></span></a>
       <button type="button" class="btn btn-link nav-search navbar-toggle-box-collapse d-md-none" data-toggle="collapse"
         data-target="#navbarTogglerDemo01" aria-expanded="false">
         <span class="fas fa-search" aria-hidden="true"></span>
@@ -98,29 +101,35 @@ include 'layout/sekolah.php';
 		//$load=$_GET['load'];
 		//echo"--- $load";
 		if($load=='')
-			{$lhome='active'; $lprofile=''; $lberita=''; $informasi='';}
+			{$lhome='active'; $lprofile=''; $lberita=''; $linformasi=''; }
 		elseif($load=='PROFILE')
-			{$lhome=''; $lprofile='active'; $lberita=''; $informasi='';}
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
 		elseif($load=='SEJARAH')
-			{$lhome=''; $lprofile='active'; $lberita=''; $informasi='';}
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
 		elseif($load=='VISI')
-			{$lhome=''; $lprofile='active'; $lberita=''; $informasi='';}
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
 		elseif($load=='TUJUAN')
-			{$lhome=''; $lprofile='active'; $lberita=''; $informasi='';}
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
 		elseif($load=='SAMBUTAN')
-			{$lhome=''; $lprofile='active'; $lberita=''; $informasi='';}
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
 		elseif($load=='JAJARAN')
-			{$lhome=''; $lprofile='active'; $lberita=''; $informasi='';}
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
 		elseif($load=='BERITA')
-			{$lhome=''; $lprofile=''; $lberita='active'; $informasi='';}
+			{$lhome=''; $lprofile=''; $lberita='active'; $linformasi=''; }
 		elseif($load=='DETAILBERITA')
-			{$lhome=''; $lprofile=''; $lberita='active'; $informasi='';}
+			{$lhome=''; $lprofile=''; $lberita='active'; $linformasi=''; }
 		elseif($load=='INFORMASI')
-			{$lhome=''; $lprofile=''; $lberita=''; $informasi='active';}
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
 		elseif($load=='DETAILINFORMASI')
-			{$lhome=''; $lprofile=''; $lberita=''; $informasi='active';}
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
 		elseif($load=='GALERY')
-			{$lhome=''; $lprofile=''; $lberita=''; $informasi='active';}
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+		elseif($load=='BUKUTAMU')
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+		elseif($load=='BUKUTAMU2')
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+		elseif($load=='BUKUTAMU3')
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
 		else
 			{}
 		?>
@@ -148,7 +157,7 @@ include 'layout/sekolah.php';
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="index.php?load=INFORMASI">Pengumuman</a>
               <a class="dropdown-item" href="index.php?load=GALERY">Galeri</a>
-              <a class="dropdown-item" href="tamu.html">Buku Tamu</a>
+              <a class="dropdown-item" href="index.php?load=BUKUTAMU">Buku Tamu</a>
             </div>
           </li>
           <li class="nav-item dropdown">
