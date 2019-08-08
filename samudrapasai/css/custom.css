@@ -1,0 +1,17 @@
+.jajaran-item[dipilih=ya] .card-box-b {
+    border: 4px solid #28a745;
+}
+.jajaran-item[dipilih=ya] .card-overlay {
+    background-color: #28a74550;
+}
+.jajaran-item.tamu {
+    vertical-align: top;
+    padding: 0px !important;
+    width: 24.5% !important;
+    cursor: pointer;
+}
+
+@media (max-width: 480px) {
+    .jajaran-item.tamu { width: 100% !important; }
+    .navbar-toggler { padding: 0px; }
+}
