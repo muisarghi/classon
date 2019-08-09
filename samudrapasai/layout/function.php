@@ -276,10 +276,11 @@ function index()
 		<div id='testimonial-carousel' class='owl-carousel owl-arrow'>
 		";	
 		$testis=mysqli_query($conn,"select * from testimoni order by id desc");
+		$no=1;
 		while($testi=mysqli_fetch_array($testis))
 			{
 			echo"
-			<div class='carousel-item-a'>
+			<div class='carousel-item-$no'>
 				<div class='testimonials-box'>
 					<div class='row'>
 						<div class='col-sm-12 col-md-6'>
@@ -308,6 +309,7 @@ function index()
 				</div>
 			</div>
 			";
+			$no++;
 			}
 			/*
 			<div class='carousel-item-a'>
@@ -1927,39 +1929,67 @@ function bukutamu3()
 function jurRPL()
 	{
 	include('inc/inc.php');
-	include('title.php');
 	
 	?>
-	<section class="section detailBerita">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h3 class="font-tertiary mb-5">Rekayasa Perangkat Lunak</h3>
-        <div class="content">
-					<div class="text-center text-muted">
-						<img src="images/tim/pichai.jpg" class="fotoProfil rounded-circle"><br />
-						Sundar Pichai - Kaprog Rekayasa Perangkat Lunak
-					</div>
-						<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
-					</p>
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
-					</p>
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
-					</p>
-        </div>
-      </div>
+	
+	<section class="intro-single">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-12 col-lg-8">
+				<div class="title-single-box">
+				<h1 class="title-single">Rekayasa Perangkat Lunak</h1>
+				</div>
+			</div>
+			
+			<div class="col-md-12 col-lg-4">
+			<nav aria-label="breadcrumb" class="breadcrumb-box d-flex justify-content-lg-end">
+            <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+			<a href="index.php">Home</a>
+			</li>
+			<li class="breadcrumb-item active" aria-current="page">
+			Rekayasa Perangkat Lunak
+            </li>
+            </ol>
+			</nav>
+			</div>
+		</div>
     </div>
-  </div>
 	</section>
+  
+	<section class="news-single nav-arrow-b">
+    <div class="container">
+		<div class="row">
+			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+				<div class="post-content color-text-a mt-4">
+					<div class="text-center mb-4">
+					<img src="img/tim/pichai.jpg" class="fotoProfil rounded-circle">
+					<h4 class="mt-4 text-muted">Sundar Pichai - Kaprog Rekayasa Perangkat Lunak</h4>
+					</div>
+					
+				<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum animi vitae eius nobis voluptatum aut est pariatur, magni sapiente beatae eveniet quis molestiae numquam molestias ad iure laborum ipsa ab.
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque dolorum eveniet assumenda, itaque natus voluptatibus perferendis corrupti, explicabo sint et sed accusamus omnis eligendi expedita, voluptatem quasi. Nam, voluptate enim.
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia illum sapiente asperiores dicta itaque expedita consequuntur deleniti quo suscipit, aut doloremque dolore ipsa labore, quasi alias fugit totam. Quam, sequi!
+				</p>
+				
+				<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum animi vitae eius nobis voluptatum aut est pariatur, magni sapiente beatae eveniet quis molestiae numquam molestias ad iure laborum ipsa ab.
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque dolorum eveniet assumenda, itaque natus voluptatibus perferendis corrupti, explicabo sint et sed accusamus omnis eligendi expedita, voluptatem quasi. Nam, voluptate enim.
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia illum sapiente asperiores dicta itaque expedita consequuntur deleniti quo suscipit, aut doloremque dolore ipsa labore, quasi alias fugit totam. Quam, sequi!
+				</p>
+				
+				<p>
+				Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum animi vitae eius nobis voluptatum aut est pariatur, magni sapiente beatae eveniet quis molestiae numquam molestias ad iure laborum ipsa ab.
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque dolorum eveniet assumenda, itaque natus voluptatibus perferendis corrupti, explicabo sint et sed accusamus omnis eligendi expedita, voluptatem quasi. Nam, voluptate enim.
+				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia illum sapiente asperiores dicta itaque expedita consequuntur deleniti quo suscipit, aut doloremque dolore ipsa labore, quasi alias fugit totam. Quam, sequi!
+				</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
 	<?php
 	}
 

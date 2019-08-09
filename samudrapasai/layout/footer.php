@@ -7,12 +7,12 @@
           <img src="img/tutwuri.png" class="tutwuri rounded-circle mb-4">
           <div class="widget-a">
             <div class="w-header-a">
-              <h3 class="w-title-a text-brand">SMA Negeri Indonesia</h3>
+              <h3 class="w-title-a text-brand"><?php echo $namaskol; ?></h3>
             </div>
             <div class="w-body-a">
               <p class="w-text-a color-text-a">
-                Jalan Pasar Besar No. 55, Surabaya, Jawa Timur<br />
-                (60242)
+                <?php echo"$alamatskol, $kabupatenskol"; ?><br />
+                (<?php echo $kodeposskol;?>)
               </p>
             </div>
           </div>
@@ -26,8 +26,8 @@
               <div class="w-body-a">
                 <div class="w-footer-a">
                   <ul class="list-unstyled">
-                    <li class="color-a"><span class="color-text-a"><i class="fas fa-envelope"></i> &nbsp; Email :</span> halo@smanegeri.sch.id</li>
-                    <li class="color-a"><span class="color-text-a"><i class="fas fa-phone"></i> &nbsp; Phone :</span> 031-123456</li>
+                    <li class="color-a"><span class="color-text-a"><i class="fas fa-envelope"></i> &nbsp; Email :</span> <?php echo $emailskol; ?></li>
+                    <li class="color-a"><span class="color-text-a"><i class="fas fa-phone"></i> &nbsp; Phone :</span> <?php echo $telpskol; ?></li>
                   </ul>
                 </div>
               </div>
@@ -45,19 +45,19 @@
           <nav class="nav-footer">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">Home</a>
+                <a href="index.php">Home</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">About</a>
+                <a href="index.php?load=PROFILE">Profile</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Property</a>
+                <a href="index.php?load=BERITA">Berita</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Blog</a>
+                <a href="index.php?load=INFORMASI">Informasi</a>
               </li>
               <li class="list-inline-item">
-                <a href="#">Contact</a>
+                <a href="index.php?load=BUKUTAMU">Kontak</a>
               </li>
             </ul>
           </nav>
@@ -93,7 +93,7 @@
           <div class="copyright-footer">
             <p class="copyright color-text-a">
               &copy; Copyright
-              <span class="color-a">EstateAgency</span> All Rights Reserved.
+              <span class="color-a"><?php echo $namaskol; ?></span> All Rights Reserved.
             </p>
           </div>
           <div class="credits">
@@ -102,8 +102,9 @@
               You can delete the links only if you purchased the pro version.
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=EstateAgency
+			  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
             -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            
           </div>
         </div>
       </div>

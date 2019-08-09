@@ -101,35 +101,37 @@ include 'layout/sekolah.php';
 		//$load=$_GET['load'];
 		//echo"--- $load";
 		if($load=='')
-			{$lhome='active'; $lprofile=''; $lberita=''; $linformasi=''; }
+			{$lhome='active'; $lprofile=''; $lberita=''; $linformasi=''; $ljurusan='';}
 		elseif($load=='PROFILE')
-			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; $ljurusan='';}
 		elseif($load=='SEJARAH')
-			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; $ljurusan='';}
 		elseif($load=='VISI')
-			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; $ljurusan='';}
 		elseif($load=='TUJUAN')
-			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; $ljurusan='';}
 		elseif($load=='SAMBUTAN')
-			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; $ljurusan='';}
 		elseif($load=='JAJARAN')
-			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; }
+			{$lhome=''; $lprofile='active'; $lberita=''; $linformasi=''; $ljurusan='';}
 		elseif($load=='BERITA')
-			{$lhome=''; $lprofile=''; $lberita='active'; $linformasi=''; }
+			{$lhome=''; $lprofile=''; $lberita='active'; $linformasi=''; $ljurusan='';}
 		elseif($load=='DETAILBERITA')
-			{$lhome=''; $lprofile=''; $lberita='active'; $linformasi=''; }
+			{$lhome=''; $lprofile=''; $lberita='active'; $linformasi=''; $ljurusan='';}
 		elseif($load=='INFORMASI')
-			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; $ljurusan='';}
 		elseif($load=='DETAILINFORMASI')
-			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; $ljurusan='';}
 		elseif($load=='GALERY')
-			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; $ljurusan='';}
 		elseif($load=='BUKUTAMU')
-			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; $ljurusan='';}
 		elseif($load=='BUKUTAMU2')
-			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; $ljurusan='';}
 		elseif($load=='BUKUTAMU3')
-			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; }
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi='active'; $ljurusan='';}
+		elseif($load=='JURRPL')
+			{$lhome=''; $lprofile=''; $lberita=''; $linformasi=''; $ljurusan='active';}
 		else
 			{}
 		?>
@@ -161,12 +163,12 @@ include 'layout/sekolah.php';
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            <a class="nav-link <?php echo $ljurusan; ?> dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
               Jurusan
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="jurusan.html">Rekayasa Perangkat Lunak</a>
+              <a class="dropdown-item" href="index.php?load=JURRPL">Rekayasa Perangkat Lunak</a>
             </div>
           </li>
           <li class="nav-item"><a class="nav-link" href="https://onklas.com" target="_blank">PPDB</a></li>
