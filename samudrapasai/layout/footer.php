@@ -64,7 +64,7 @@
           <div class="socials-a">
             <ul class="list-inline">
               <li class="list-inline-item">
-                <a href="#">
+                <a href="<? echo $fb_pathskol; ?>">
                   <i class="fab fa-facebook" aria-hidden="true"></i>
                 </a>
               </li>
@@ -74,10 +74,11 @@
                 </a>
               </li>
               <li class="list-inline-item">
-                <a href="#">
+                <a href="<?php echo $instagram_pathskol; ?>">
                   <i class="fab fa-instagram" aria-hidden="true"></i>
                 </a>
               </li>
+			  <!--
               <li class="list-inline-item">
                 <a href="#">
                   <i class="fab fa-pinterest-p" aria-hidden="true"></i>
@@ -88,6 +89,7 @@
                   <i class="fab fa-dribbble" aria-hidden="true"></i>
                 </a>
               </li>
+			  -->
             </ul>
           </div>
           <div class="copyright-footer">
@@ -146,5 +148,35 @@
 		})
 	</script>
 	
+	<script>
+	$(".carousel-item").owlCarousel({
+    items: 4,
+    dots: true,
+    responsive:{
+        0:{
+            items:1,
+            mouseDrag: true,
+            touchDrag: true
+        },
+        480:{
+            items:2,
+            mouseDrag: true,
+            touchDrag: true
+        },
+        750:{
+            items:3,
+            mouseDrag: true,
+            touchDrag: true
+        },
+        1000:{
+            items:4,
+            dots: false,
+            nav: false,
+            mouseDrag: false,
+            touchDrag: false
+        }
+    }
+});
+	</script>
 </body>
 </html>
