@@ -18,7 +18,8 @@
 		?>
         
       </div>
-
+		<?php
+		/*
       <!-- direction 1 -->
       <div id="slider-direction-1" class="slider-direction slider-one">
         <div class="container">
@@ -67,6 +68,7 @@
           </div>
         </div>
       </div>
+	  */?>
 
 
 

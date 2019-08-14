@@ -204,11 +204,11 @@ function index()
 		</div>
 	  </div>
 	  <!-- bg shapes -->
-	  <img src="images/illustrations/dots-group-v.png" alt="bg-shape" class="img-fluid bg-shape-1">
-	  <img src="images/illustrations/leaf-orange.png" alt="bg-shape" class="img-fluid bg-shape-2">
-	  <img src="images/illustrations/dots-group-sm.png" alt="bg-shape" class="img-fluid bg-shape-3">
-	  <img src="images/illustrations/leaf-pink-round.png" alt="bg-shape" class="img-fluid bg-shape-4">
-	  <img src="images/illustrations/leaf-cyan.png" alt="bg-shape" class="img-fluid bg-shape-5">
+	  <img src="img/illustrations/dots-group-v.png" alt="bg-shape" class="img-fluid bg-shape-1">
+	  <img src="img/illustrations/leaf-orange.png" alt="bg-shape" class="img-fluid bg-shape-2">
+	  <img src="img/illustrations/dots-group-sm.png" alt="bg-shape" class="img-fluid bg-shape-3">
+	  <img src="img/illustrations/leaf-pink-round.png" alt="bg-shape" class="img-fluid bg-shape-4">
+	  <img src="img/illustrations/leaf-cyan.png" alt="bg-shape" class="img-fluid bg-shape-5">
 	</section>
 	<!-- /testimonial -->
 	<?php
@@ -1023,7 +1023,7 @@ function jurRPL()
         <h3 class="font-tertiary mb-5">Rekayasa Perangkat Lunak</h3>
         <div class="content">
 					<div class="text-center text-muted">
-						<img src="images/tim/pichai.jpg" class="fotoProfil rounded-circle"><br />
+						<img src="img/tim/pichai.jpg" class="fotoProfil rounded-circle"><br />
 						Sundar Pichai - Kaprog Rekayasa Perangkat Lunak
 					</div>
 						<p>

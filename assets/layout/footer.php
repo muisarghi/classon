@@ -76,7 +76,7 @@
             <div class="media-container-row">
                 <div class="col-sm-6 copyright">
                     <p class="mbr-text mbr-fonts-style display-7">
-                        © Copyright 2019 &nbsp; <?php echo $footerskol; ?> - All Rights Reserved
+                        &copy; Copyright 2019 &nbsp; <?php echo $footerskol; ?> - All Rights Reserved
                     </p>
                 </div>
                 <div class="col-md-6">

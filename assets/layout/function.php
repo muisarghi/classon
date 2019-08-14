@@ -8,22 +8,100 @@ function index()
 	{
 	include('inc/inc.php');
 		?>
-		<section class="engine"><a href="https://mobirise.info/i">site creation software</a></section><section class="carousel slide cid-rs0XWDKLqr" data-interval="false" id="slider1-1">
+		<section class="carousel slide cid-rs0XWDKLqr" data-interval="false" id="slider1-1">
 
 			<div class="full-screen">
 				<div class="mbr-slider slide carousel" data-pause="true" data-keyboard="false" data-ride="false" data-interval="false">
 				<ol class="carousel-indicators">
-				<li data-app-prevent-settings="" data-target="#slider1-1" data-slide-to="0"></li>
+				<li data-app-prevent-settings="" data-target="#slider1-1" class=" active" data-slide-to="0"></li>
 				<li data-app-prevent-settings="" data-target="#slider1-1" data-slide-to="1"></li>
-				<li data-app-prevent-settings="" data-target="#slider1-1" class=" active" data-slide-to="2"></li>
+				<li data-app-prevent-settings="" data-target="#slider1-1"  data-slide-to="2"></li>
 				</ol>
 					<div class="carousel-inner" role="listbox">
-						<div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false">
-							<div class="container container-slide">
-								<div class="image_wrapper">
-									<div class="mbr-overlay">
+					<?php
+					$slides=mysqli_query($conn,"select * from banner order by id desc");
+					while($slide=mysqli_fetch_array($slides))
+						{
+						echo"
+						<div class='carousel-item slider-fullscreen-image' style='background-image: url($slide[img])'>
+							<div class='container container-slide'>
+							
+								<div class='image_wrapper'>
+									
+									<div class='mbr-overlay'>
+									
 									</div>
-								<img src="assets/images/slide-1.jpg">
+									
+									<div class='carousel-caption justify-content-center'>
+										<div class='col-10 align-center'>
+										<h2 class='mbr-fonts-style display-1'><strong>$slide[title]</strong></h2>
+										<p class='lead mbr-text mbr-fonts-style display-5'> Sekolan Unggul insan berbudi pekerti dengan mengedepankan aspek teknologi</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						";
+						}
+
+					$slidesb=mysqli_query($conn,"select * from banner order by id desc limit 1");
+					while($slideb=mysqli_fetch_array($slidesb))
+						{
+						echo"
+						<div class='carousel-item slider-fullscreen-image active' style='background-image: url($slideb[img])'>
+							<div class='container container-slide'>
+							
+								<div class='image_wrapper'>
+									
+									<div class='mbr-overlay'>
+									
+									</div>
+									
+									<div class='carousel-caption justify-content-center'>
+										<div class='col-10 align-center'>
+										<h2 class='mbr-fonts-style display-1'><strong>$slideb[title]</strong></h2>
+										<p class='lead mbr-text mbr-fonts-style display-5'> Sekolan Unggul insan berbudi pekerti dengan mengedepankan aspek teknologi</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						";
+						}
+
+					?>
+
+					
+						<!--
+						<div class="carousel-item slider-fullscreen-image active" style='background-image: url(img/galeri/skola_2.jpg)'>
+						<!--<img src="img/galeri/skola_2.jpg">
+							<div class="container container-slide">
+							
+								<div class="image_wrapper">
+									
+									<div class="mbr-overlay">
+									
+									</div>
+									
+									<div class="carousel-caption justify-content-center">
+										<div class="col-10 align-center">
+										<h2 class="mbr-fonts-style display-1"><strong>SMAN 1 Majapahit</strong></h2>
+										<p class="lead mbr-text mbr-fonts-style display-5">Selamat datang di SMA 1 Majapahit , Sekolan Unggul insan berbudi pekerti dengan mengedepankan aspek teknologi</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="carousel-item slider-fullscreen-image" style='background-image: url(img/galeri/skola_2.jpg)'>
+						<!--<img src="img/galeri/skola_2.jpg">
+							<div class="container container-slide">
+							
+								<div class="image_wrapper">
+									
+									<div class="mbr-overlay">
+									
+									</div>
+									
 									<div class="carousel-caption justify-content-center">
 										<div class="col-10 align-center">
 										<h2 class="mbr-fonts-style display-1"><strong>SMAN 1 Majapahit</strong></h2>
@@ -34,11 +112,11 @@ function index()
 							</div>
 						</div>
 						
-						<div class="carousel-item slider-fullscreen-image" data-bg-video-slide="false">
+						<div class="carousel-item slider-fullscreen-image" style='background-image: url(img/galeri/galeri_10.jpg)'>
 							<div class="container container-slide">
 								<div class="image_wrapper">
 									<div class="mbr-overlay"></div>
-								<img src="assets/images/slide-2.jpg">
+								<!--<img src="img/galeri/galeri_10.jpg">
 									<div class="carousel-caption justify-content-center">
 										<div class="col-10 align-center">
 										<h2 class="mbr-fonts-style display-1"><strong>SMAN 1 Majapahit</strong></h2>
@@ -63,6 +141,9 @@ function index()
 								</div>
 							</div>
 						</div>
+						-->
+
+
 					</div>
 					<a data-app-prevent-settings="" class="carousel-control carousel-control-prev" role="button" data-slide="prev" href="#slider1-1">
 					<span aria-hidden="true" class="mbri-left mbr-iconfont"></span>
@@ -363,7 +444,7 @@ function profil()
 	include 'inc/inc.php';
 	?>
 	
-	<section class="engine"><a href="https://mobirise.info/l">free website templates</a></section><section class="mbr-section content5 cid-rs1kDWtH51 mbr-parallax-background" id="content5-k">
+	<section class="mbr-section content5 cid-rs1kDWtH51 mbr-parallax-background" id="content5-k">
 
     <div class="container">
         <div class="media-container-row">
@@ -380,14 +461,23 @@ function profil()
 
     <div class="container">
         <div class="media-container-row">
-            <div class="mbr-text col-12 mbr-fonts-style display-7 col-md-10">
+            
 			<?php
 			$a1=mysqli_query($conn,"select * from profile order by id desc limit 1");
 				while($a=mysqli_fetch_array($a1))
 				{
 				$profile_pjg=$a['profile_panjang'];
+				$bg=$a['bg'];
 				}
-			echo"$profile_pjg";
+			echo"
+			
+
+			<div class='mbr-text col-12 mbr-fonts-style display-7 col-md-10'>
+			<div class='mbr-figure' style='width: 100%;'>
+			<img src='$bg'>
+			</div>
+			<br>
+			$profile_pjg";
 			?>
 			
             </div>
@@ -401,7 +491,7 @@ function sejarah()
 	{
 	include 'inc/inc.php';
 	?>
-	<section class="engine"><a href="https://mobirise.info/l">free website templates</a></section><section class="mbr-section content5 cid-rs1kDWtH51 mbr-parallax-background" id="content5-k">
+	<section class="mbr-section content5 cid-rs1kDWtH51 mbr-parallax-background" id="content5-k">
 
     <div class="container">
         <div class="media-container-row">
@@ -426,6 +516,7 @@ function sejarah()
 							while($a=mysqli_fetch_array($a1))
 							{
 							$text=$a['text'];
+							$bg=$a['bg'];
 							}
 						echo"$text";
 						?>
@@ -434,7 +525,8 @@ function sejarah()
                     </div>
 
                     <div class="mbr-figure" style="width: 105%;">
-                     <img src="assets/images/cropped-dsc-2055-1012x559.jpg" alt="Mobirise" title="">  
+                     <!--<img src="assets/images/cropped-dsc-2055-1012x559.jpg" alt="Mobirise" title=""> -->
+					 <?php echo"<img src='$bg'>"; ?>
                     </div>
 
                 </div>
@@ -450,7 +542,7 @@ function visi()
 	{
 	include 'inc/inc.php';
 	?>
-	<section class="engine"><a href="https://mobirise.info/q">free responsive site templates</a></section><section class="mbr-section content5 cid-rs5SVL0d7A mbr-parallax-background" id="content5-17">
+	<section class="mbr-section content5 cid-rs5SVL0d7A mbr-parallax-background" id="content5-17">
 
     <div class="container">
         <div class="media-container-row">
@@ -488,7 +580,7 @@ function sambutan()
 	{
 	include 'inc/inc.php';
 	?>
-	<section class="engine"><a href="https://mobirise.info/o">portfolio website templates</a></section><section class="mbr-section content5 cid-rs5Rxz0kuH mbr-parallax-background" id="content5-13">
+	<section class="mbr-section content5 cid-rs5Rxz0kuH mbr-parallax-background" id="content5-13">
     <div class="container">
         <div class="media-container-row">
             <div class="title col-12 col-md-8">
@@ -528,12 +620,12 @@ function jajaran()
 	{
 	include 'inc/inc.php';
 	?>
-	<section class="engine"><a href="https://mobirise.info/n">free simple site templates</a></section><section class="mbr-section content5 cid-rs5VuK7paA mbr-parallax-background" id="content5-1b">
+	<section class="mbr-section content5 cid-rs5VuK7paA mbr-parallax-background" id="content5-1b">
     <div class="container">
         <div class="media-container-row">
             <div class="title col-12 col-md-8">
                 <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1">Jajaran&nbsp;</h2>
-                <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">Terdiri dari Kepa Sekolah, Guru, Humas, Wakil Kepala Sekolah dan Petugas</h3>
+                <h3 class="mbr-section-subtitle align-center mbr-light mbr-white pb-3 mbr-fonts-style display-5">Terdiri dari Kepala Sekolah, Guru, Humas, Wakil Kepala Sekolah dan Petugas</h3>
             </div>
         </div>
     </div>
@@ -634,7 +726,7 @@ function berita()
 	include 'inc/inc.php';
 	?>
 	
-	<section class="engine"><a href="https://mobirise.info/g">how to build a site for free</a></section><section class="mbr-section content5 cid-rs5O2AOW5U mbr-parallax-background" id="content5-z">
+	<section class="mbr-section content5 cid-rs5O2AOW5U mbr-parallax-background" id="content5-z">
 
     <div class="container">
         <div class="media-container-row">
@@ -705,7 +797,16 @@ function detberita()
 		$img=$a['img'];
 		}
 	?>
-	<section class="engine"><a href="https://mobirise.info/k">develop your own website</a>
+	<section class="mbr-section content5 cid-rs5O2AOW5U mbr-parallax-background" id="content5-z">
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1">
+                    Detail Berita</h2>
+            </div>
+        </div>
+    </div>
 	</section>
 	
 	<section class="mbr-section content4 cid-rs6d6Tp2ok" id="content4-1o">
@@ -1148,8 +1249,7 @@ function pengumuman()
 	{
 	include 'inc/inc.php';
 	?>
-	<section class="engine"><a href="https://mobirise.info/t">free amp template</a>
-	</section>
+	
 	<section class="mbr-section content5 cid-rs5InHdEzr mbr-parallax-background" id="content5-r">
 
     <div class="container">
@@ -1226,7 +1326,16 @@ function detpengumuman()
 		$img=$a['img'];
 		}
 	?>
-	<section class="engine"><a href="https://mobirise.info/k">develop your own website</a>
+	<section class="mbr-section content5 cid-rs5InHdEzr mbr-parallax-background" id="content5-r">
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="title col-12 col-md-8">
+                <h2 class="align-center mbr-bold mbr-white pb-3 mbr-fonts-style display-1">
+                    Detail Pengumuman</h2>  
+            </div>
+        </div>
+    </div>
 	</section>
 	
 	<section class="mbr-section content4 cid-rs6d6Tp2ok" id="content4-1o">

@@ -1,6 +1,6 @@
 <?php
 ob_start();
-@ini_set('display_errors', 'on');
+@ini_set('display_errors', 'off');
 
 include 'inc/inc.php';
 include 'layout/sekolah.php';
