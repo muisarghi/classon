@@ -1,0 +1,62 @@
+body { background-color: #fff; }
+#main {
+    margin-top: 70px;
+}
+.section-header h3 {
+    text-align: left;
+}
+section p {
+    color: #283d50 !important;
+    font-size: 16px;
+    line-height: 36px;
+    font-weight: lighter;
+}
+.tutwuri {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+.foto {
+    width: 250px;
+    height: 250px;
+}
+
+.berita-item { vertical-align: top; }
+.berita-item .konten,.jajaran-item .konten {
+    background-color: #fff;
+    box-shadow: 1px 1px 5px 1px #ddd;
+    margin-bottom: 20px;
+}
+.berita-item .konten .wrapper { padding: 15px; }
+.berita-item img,.jajaran-item img {
+    width: 100%;
+    height: 250px;
+}
+.berita-item h4 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 26px;
+}
+.berita-item p {
+    font-size: 15px;
+    line-height: 28px;
+}
+.jajaran-item .wrapper {
+    padding: 20px;
+}
+.jajaran-item p,.jajaran-item h4 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+.jajaran-item {
+    margin: -2px;
+    margin-bottom: 20px;
+    vertical-align: top;
+}
+.jajaran-item.col-md-3 img { height: 200px; }
+.jajaran-item.col-md-2 img { height: 170px; }
+.jajaran-item.col-md-2 h4 { font-size: 16px; }
+
+.jajaran-item[dipilih=ya] .konten {
+    border: 4px solid #024a99;
+}
