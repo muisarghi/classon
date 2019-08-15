@@ -26,7 +26,7 @@ while($skol=mysqli_fetch_array($skola))
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>SMA Negeri Indonesia</title>
+  <title><?php echo $namaskol; ?></title>
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <meta content="" name="keywords">
   <meta content="" name="description">
@@ -89,7 +89,7 @@ while($skol=mysqli_fetch_array($skola))
 							<li><a href="index.php?load=JAJARAN">Jajaran</a></li>
             </ul>
           </li>
-					<li><a href="berita.html">Berita</a></li>
+					<li><a href="index.php?load=BERITA">Berita</a></li>
 					<li class="drop-down"><a href="#">Informasi</a>
             <ul>
 							<li><a href="index.php?load=INFORMASI">Pengumuman</a></li>

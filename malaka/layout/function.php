@@ -8,151 +8,138 @@ function index()
 	{
 	include('inc/inc.php');
 	include ('slider.php');
-	?>
-	<!-- services -->
-	<section class="section" id="info">
-	  <div class="container">
-		<div class="row">
-		  <div class="col-md-6 mt-4 mb-4 mb-md-0">
-			<div class="card hover-shadow shadow bg-primary text-white">
-			  <div class="card-body text-center px-4 py-5">
-				<div class="col-md-4 float-left">
-				  <i class="fas fa-school icon mb-4 d-inline-block"></i>
-				  <h4 class="mb-4 text-white">Sekolah Negeri</h4>
+	echo"
+	<main id='main'>
+    <section id='about'>
+	<div class='container'>
+	<header class='section-header'>
+	<h3 class='text-center'>Profil Sekolah</h3>
+	";
+	$profilesek=mysqli_query($conn,"select * from profile order by id desc limit 1");
+	while($profilese=mysqli_fetch_array($profilesek))
+		{
+		echo"
+		<p>$profilese[profile_singkat]
+		</p>
+		";
+		}
+	echo"
+	</header>
+	</div>
+    </section>
+	
+    <section id='services' class='section-bg'>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-md-6 col-lg-5 offset-lg-1 wow bounceInUp' data-wow-duration='1.4s'>
+				<div class='box'>
+					<div class='icon'><i class='ion-android-bus' style='color: #ff689b;'></i>
+					</div>
+				<h4 class='title'><a href='#services'>Akses Mudah</a></h4>
+				<p class='description'>Tak perlu khawatir telat masuk karena sekolah ini dilewati oleh berbagai kendaraan umum dan lokasi yang mudah dijangkau</p>
 				</div>
-				<div class="col-md-8 float-left text-left">
-				  <p class="text-white">
-					Dibawah naungan dinas pendidikan langsung menjadikan sekolah ini lebih disiplin dalam mengajar para siswa
-				  </p>
-				</div>
-			  </div>
 			</div>
-		  </div>
-		  <div class="col-md-6 mt-4 mb-4 mb-md-0">
-			<div class="card hover-shadow shadow bg-primary text-white">
-			  <div class="card-body text-center px-4 py-5">
-				<div class="col-md-4 float-left">
-				  <i class="fas fa-check icon mb-4 d-inline-block"></i>
-				  <h4 class="mb-4 text-white">Akreditasi A</h4>
+				
+			<div class='col-md-6 col-lg-5 wow bounceInUp' data-wow-duration='1.4s'>
+				<div class='box'>
+					<div class='icon'><i class='ion-ios-alarm' style='color: #e9bf06;'></i>
+					</div>
+				<h4 class='title'><a href='#services'>Fullday School</a></h4>
+				<p class='description'>Sesuai dengan visi kami untuk meningkatkan kualitas pendidikan, kami menerapkan fullday school agar pembelajaran dapat dilakukan lebih optimal</p>
 				</div>
-				<div class="col-md-8 float-left text-left">
-				  <p class="text-white">
-					Kualitas pendidikan sangat penting bagi kami, itu terbukti dengan akreditasi A pada sekolah ini.
-				  </p>
-				</div>
-			  </div>
 			</div>
-		  </div>
-		  <div class="col-md-6 mt-4 mb-4 mb-md-0">
-			<div class="card hover-shadow shadow bg-primary text-white">
-			  <div class="card-body text-center px-4 py-5">
-				<div class="col-md-4 float-left">
-				  <i class="fas fa-list icon mb-4 d-inline-block"></i>
-				  <h4 class="mb-4 text-white">Berprestasi</h4>
-				</div>
-				<div class="col-md-8 float-left text-left">
-				  <p class="text-white">
-					Telah menjuarai berbagai bidang perlombaan di tingkat kabupaten maupun provinsi menjadikan sekolah ini lebih unggul dari yang lain.
-				  </p>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		  <div class="col-md-6 mt-4 mb-4 mb-md-0">
-			<div class="card hover-shadow shadow bg-primary text-white">
-			  <div class="card-body text-center px-4 py-5">
-				<div class="col-md-4 float-left">
-				  <i class="fas fa-clock icon mb-4 d-inline-block"></i>
-				  <h4 class="mb-4 text-white">Fullday School</h4>
-				</div>
-				<div class="col-md-8 float-left text-left">
-				  <p class="text-white">
-					Sesuai dengan visi kami untuk meningkatkan kualitas pendidikan, kami menerapkan fullday school agar pembelajaran dapat dilakukan lebih optimal
-				  </p>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</section>
-	<!-- /services -->
 
-	<!-- profil -->
-	<section class="section bg-primary position-relative testimonial-bg-shapes text-white" id="profil">
-	  <div class="container">
-		<div class="row mx-auto ">
-		  <h3 class="section-title text-white mb-5">Profil Sekolah</h3>
-		  
-			<?php
-			$profseko=mysqli_query($conn,"select * from profile order by id desc limit 1");
-			while($profsek=mysqli_fetch_array($profseko))
-				{
-				$profile_singkat=$profsek['profile_singkat'];
-				}
-			echo"<p class='text-white mb-4'>$profile_singkat </p>";
-			?>
-		  </p>
-		  <a href="index.php?load=PROFILE" class="btn btn-light btn-lg">Selengkapnya</a>
-		</div>
-	  </div>
-	</section>
-
-	<!-- portfolio -->
-	<section class="section" id="galeri">
-	  <div class="container">
-		<div class="row">
-		  <div class="col-12 text-center">
-			<h2 class="section-title">Galeri</h2>
-		  </div>
-		</div>
-		<div class="row shuffle-wrapper">
-		<?php
-		$galerys=mysqli_query($conn,"select * from galeri where kat !=0 order by id DESC limit 6");
-		while($galery=mysqli_fetch_array($galerys))
-			{
-			echo"
-			<div class='col-lg-4 col-6 mb-4 shuffle-item'>
-			<div class='position-relative rounded hover-wrapper'>
-			  <img src='$galery[img]' alt='portfolio-image' class='img-fluid rounded w-100'>
-			  <div class='hover-overlay'>
-				<div class='hover-content'>
-				  <a class='btn btn-light btn-sm' href='$galery[img]'>View Image</a>
+			<div class='col-md-6 col-lg-5 offset-lg-1 wow bounceInUp' data-wow-delay='0.1s' data-wow-duration='1.4s'>
+				<div class='box'>
+					<div class='icon'><i class='ion-ios-star' style='color: #3fcdc7;'></i>
+					</div>
+				<h4 class='title'><a href='#services'>Berprestasi</a></h4>
+				<p class='description'>Telah menjuarai berbagai bidang perlombaan di tingkat kabupaten maupun provinsi menjadikan sekolah ini lebih unggul dari yang lain.</p>
 				</div>
-			  </div>
 			</div>
-		  </div>
-			";
-			}
-		?>
-		</div>
-		<div class="text-center mt-4">
-		  <a href="index.php?load=GALERY" class="btn btn-primary btn-lg">Koleksi lainnya</a>
-		</div>
-	  </div>
-	</section>
-	<!-- /portfolio -->
-
-	<!-- blog -->
-	<section class="section" id="berita">
-	  <div class="container">
-		<div class="row">
-		  <div class="col-12 text-center">
-			<h2 class="section-title">Berita</h2>
-		  </div>
 			
-			<?php
-			$beritas=mysqli_query($conn,"select * from berita order by id desc limit 3");
-			while($berita=mysqli_fetch_array($beritas))
+			<div class='col-md-6 col-lg-5 wow bounceInUp' data-wow-delay='0.1s' data-wow-duration='1.4s'>
+				<div class='box'>
+					<div class='icon'><i class='ion-cash' style='color:#41cf2e;'></i>
+					</div>
+				<h4 class='title'><a href='#services'>Dukungan Finansial</a></h4>
+				<p class='description'>Sekolah sangat memahami kondisi finansial orang tua, untuk itu sekolah menyediakan program untuk siswa yang finansialnya kurang beruntung</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+    </section>
+
+    <section id='portfolio' class='clearfix'>
+	<div class='container'>
+	<header class='section-header'>
+	<h3 class='section-title text-center'>Galeri</h3>
+	</header>
+		<div class='row'>
+			<div class='col-lg-12'>
+            <ul id='portfolio-flters'>
+            <li data-filter='*' class='filter-active'>All</li>";
+
+			//<li data-filter='.filter-guru'>Guru</li>
+			//<li data-filter='.filter-siswa'>Siswa</li>
+            $galerys=mysqli_query($conn,"select kategori_galeri.id as idkat, kategori_galeri.kategori as namakategori, galeri.* from kategori_galeri  left join galeri on galeri.kat=kategori_galeri.id group by kategori_galeri.id order by galeri.id desc limit 4");
+			while($galery=mysqli_fetch_array($galerys))
 				{
 				echo"
-				<div class='col-lg-4 col-sm-6 mb-4 mb-lg-0'>
-				<article class='card shadow'>
-				  <img class='rounded card-img-top' src='$berita[img]' alt='post-thumb'>
-				  <div class='card-body'>
-					<h4 class='card-title'><a class='text-dark' href='index.php?load=DETAILBERITA&id=$berita[id]'>$berita[judul]</a>
-					</h4>
-					<p class='cars-text'>";
+				<li data-filter='.filter-$galery[idkat]'>$galery[namakategori]</li>
+				";
+				}
+			echo"
+			</ul>
+		</div>
+	</div>
+
+	<div class='row portfolio-container'>
+	";
+	$galeris=mysqli_query($conn,"select kategori_galeri.id as idkat, kategori_galeri.kategori as namakategori, galeri.* from galeri left join kategori_galeri on galeri.kat=kategori_galeri.id order by galeri.id desc limit 6");
+	while($galeri=mysqli_fetch_array($galeris))
+		{
+		echo"
+		<div class='col-lg-4 col-md-6 portfolio-item filter-$galeri[idkat]'>
+			<div class='portfolio-wrap'>
+			<img src='$galeri[img]' class='img-fluid' alt=''>
+				<div class='portfolio-info'>
+                <h4><a href='#'>$galeri[judul]</a></h4>
+                <p>App</p>
+					<div>
+					<a href='$galeri[img]' data-lightbox='portfolio' data-title='$galeri[judul]' class='link-preview' title='Preview'><i class='ion ion-eye'></i></a>
+					<a href='#' class='link-details' title='More Details'><i class='ion ion-android-open'></i></a>
+					</div>
+				</div>
+            </div>
+		</div>
+		";
+		}
+
+	echo"
+	</div>
+    </section>
+
+    <section class='section-bg pt-5 pb-5'>
+	<div class='container'>
+		<div class='section-header'>
+		<h3>Berita</h3>
+        </div>
+        
+		
+		<div class='row'>
+		";
+		$beritas=mysqli_query($conn,"select kategori_berita.id, kategori_berita.kategori as namakategori, berita.* from berita left join kategori_berita on berita.kategori=kategori_berita.id order by berita.id desc limit 3");
+		while($berita=mysqli_fetch_array($beritas))
+			{
+			echo"
+			<div class='col-md-4 berita-item'>
+				<div class='konten'>
+				<img src='$berita[img]'>
+					<div class='wrapper'>
+					<h4>$berita[judul]</h4>
+					<p>";
 					$text=explode(' ',$berita['text']);
 					for($i=0;$i<=15;$i++)
 						{
@@ -160,58 +147,77 @@ function index()
 						}
 					echo"
 					</p>
-					<a href='index.php?load=DETAILBERITA&id=$berita[id]' class='btn btn-xs btn-primary'>Read More</a>
-				  </div>
-				</article>
-			  </div>
-				";
-				}
-			?>
-
-		</div>
-		<div class="text-center mt-4">
-		  <a href="index.php?load=BERITA" class="btn btn-primary btn-lg">Berita lainnya</a>
-		</div>
-	  </div>
-	</section>
-	<!-- /blog -->
-
-	<!-- testimonial -->
-	<section class="section bg-primary position-relative testimonial-bg-shapes" id="jajaran">
-	  <div class="container">
-		<div class="row">
-		  <div class="col-12 text-center">
-			<h3 class="section-title text-white mb-5">Jajaran</h3>
-		  </div>
-		  <div class="col-lg-10 mx-auto testimonial-slider">
-			<!-- slider-item -->
-			<div class="text-center testimonial-content">
-			<?php
-			$kepseka=mysqli_query($conn, "select * from jajaran where jabatan like '%kepala sekolah%'");
-			while($kepsek=mysqli_fetch_array($kepseka))
-				{
-				$mnama=$kepsek['nama'];
-				$mimg=$kepsek['img'];
-				}
-			?>
-			  <img class="img-fluid rounded-circle mb-4 d-inline-block fotoProfil" src="<?php echo $mimg; ?>"
-				alt="client-image">
-			  <h4 class="text-white"><?php echo $mnama; ?></h4>
-			  <h6 class="text-light mb-4">Kepala Sekolah</h6>
-			  <a href="index.php?load=JAJARAN" class="btn btn-light mb-4">Selengkapnya</a>
+					<a href='index.php?load=DETAILBERITA&id=$berita[id]' class='btn btn-primary'>Baca</a>
+					</div>
+				</div>
 			</div>
-		  </div>
+			";
+			}
+
+
+		echo"
 		</div>
-	  </div>
-	  <!-- bg shapes -->
-	  <img src="img/illustrations/dots-group-v.png" alt="bg-shape" class="img-fluid bg-shape-1">
-	  <img src="img/illustrations/leaf-orange.png" alt="bg-shape" class="img-fluid bg-shape-2">
-	  <img src="img/illustrations/dots-group-sm.png" alt="bg-shape" class="img-fluid bg-shape-3">
-	  <img src="img/illustrations/leaf-pink-round.png" alt="bg-shape" class="img-fluid bg-shape-4">
-	  <img src="img/illustrations/leaf-cyan.png" alt="bg-shape" class="img-fluid bg-shape-5">
-	</section>
-	<!-- /testimonial -->
-	<?php
+	</div>
+    </section>
+	
+	<section id='team'>
+	<div class='container text-center'>
+		<div class='section-header'>
+		<h3 class='text-center'>Jajaran</h3>
+        </div>
+
+        <div class='row'>
+			<div class='col-md-3'></div>
+				
+				<div class='col-md-3 wow fadeInUp d-inline-block'>
+					<div class='member'>
+					<img src='img/tim/elon.jpg' class='img-fluid foto' />
+						<div class='member-info'>
+							<div class='member-info-content'>
+							<h4>Elon Musk</h4>
+							<span>Kepala Sekolah</span>
+								<div class='social'>
+								<a href=''><i class='fa fa-twitter'></i></a>
+								<a href=''><i class='fa fa-facebook'></i></a>
+								<a href=''><i class='fa fa-google-plus'></i></a>
+								<a href=''><i class='fa fa-linkedin'></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class='col-md-3 wow fadeInUp d-inline-block'>
+					<div class='member'>
+					<img src='img/tim/zuck.jpg' class='img-fluid foto' />
+						<div class='member-info'>
+							<div class='member-info-content'>
+							<h4>Mark Zuckerberg</h4>
+							<span>Wakil Kepala</span>
+								<div class='social'>
+								<a href=''><i class='fa fa-twitter'></i></a>
+								<a href=''><i class='fa fa-facebook'></i></a>
+								<a href=''><i class='fa fa-google-plus'></i></a>
+								<a href=''><i class='fa fa-linkedin'></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class='col-md-12 text-center'>
+				<a href='jajaran.html' class='btn btn-primary'>Selengkapnya</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+    </section>
+	
+    
+	</main>
+	";
+	
 	}
 
 function profile()
@@ -631,42 +637,46 @@ function program()
 function berita()
 	{
 	include('inc/inc.php');
-	include('title.php');
 	
 	?>
-	<section class="section berita">
+	<main id="main">
+	<section id="about" class="text-left col-md-12">
 	<div class="container">
+		<div class="section-header">
+		<h3>Berita</h3>
+		</div>
+		
 		<div class="row">
 		<?php
 		$a1=mysqli_query($conn,"select * from berita order by id desc");
 		while($a=mysqli_fetch_array($a1))
 			{
 			echo"
-			<div class='col-lg-4 col-sm-6 mb-4'>
-			<article class='card shadow'>
-			<img class='rounded card-img-top' src='$a[img]' alt='post-thumb'>
-				<div class='card-body'>
-				<h4 class='card-title'>
-				<a class='text-dark' href='index.php?load=DETAILBERITA&id=$a[id]'>$a[judul]</a>
-				</h4>
-				<p class='cars-text'>";
-				$text=explode(' ',$a['text']);
-				for($i=0;$i<=30;$i++)
-					{
-					echo"$text[$i] ";
-					}
-				echo"
-				</p>
-				<a href='index.php?load=DETAILBERITA&id=$a[id]' class='btn btn-xs btn-primary'>Baca berita</a>
+			<div class='col-md-4 berita-item'>
+				<div class='konten'>
+				<img src='$a[img]'>
+					<div class='wrapper'>
+					<h4>$a[judul]</h4>
+					<p>";
+					$text=explode(' ',$a['text']);
+					for($i=0;$i<=15;$i++)
+						{
+						echo"$text[$i] ";
+						}
+					echo"</p>
+					<a href='index.php?load=DETAILBERITA&id=$a[id]' class='btn btn-primary'>Baca</a>
+					</div>
 				</div>
-			</article>
 			</div>
 			";
 			}
 		?>
+			
 		</div>
 	</div>
 	</section>
+	</main>
+	
 	<?php
 	}
 
@@ -675,7 +685,6 @@ function detailberita()
 	{
 	$id=$_GET['id'];
 	include('inc/inc.php');
-	include('title.php');
 
 	$a1=mysqli_query($conn,"select * from berita where id='$id' and status='1'");
 	while($a=mysqli_fetch_array($a1))
@@ -687,105 +696,74 @@ function detailberita()
 		$tgl=$a['tgl'];
 		}
 	echo"
-	<section class='section detailBerita'>
+	<main id='main' class='text-center'>
+	<section id='about' class='text-left col-md-7 d-inline-block'>
 	<div class='container'>
-		<div class='row'>
-			<div class='col-lg-12'>
-			<h3 class='font-tertiary mb-5'>$judul</h3>
-			<p class='font-secondary'>Published on ".date("F d, Y", strtotime($tgl))." by 
-			<span class='text-primary'> $penulis</span>
-			</p>
-        
-				<div class='content'>
-				<img src='$img' class='cover rounded'>
-				<p>
-				$text
-				</p>
-				</div>
-			</div>
+	<header class='section-header'>
+	<h3>$judul</h3>
+	</header>
+		<div class='col-md-12 text-center'>
+		<img src='$img' class='rounded mb-4 w-100'>
 		</div>
+	
+	<p>
+	$text
+	</p>
+	<a href='index.php?load=BERITA'>[ kembali ]</a>
 	</div>
 	</section>
-
-	<section class='section berita'>
-	<div class='container'>
-		<div class='row'>
-			<div class='col-12 text-center'>
-			<h2 class='section-title'>Berita Terkait</h2>
-			</div>";
-			
-			$b1=mysqli_query($conn,"select * from berita where id !='$id' order by id desc limit 3");
-			while($b=mysqli_fetch_array($b1))
-				{
-				echo"
-				<div class='col-lg-4 col-sm-6 mb-4 mb-lg-0'>
-				<article class='card shadow'>
-				<img class='rounded card-img-top' src='$b[img]' alt='post-thumb'>
-					<div class='card-body'>
-					<h4 class='card-title'>
-					<a class='text-dark' href='#'>$b[judul]</a>
-					</h4>
-					<p class='cars-text'>";
-					$text=explode(' ',$b['text']);
-						for($i=0;$i<=30;$i++)
-						{
-						echo"$text[$i] ";
-						}
-					echo"
-					</p>
-					<a href='index.php?load=DETAILBERITA&id=$b[id]' class='btn btn-xs btn-primary'>Read More</a>
-					</div>
-				</article>
-				</div>
-				";
-				}
-
-		echo"
-		</div>
-	</div>
-	</section>";
+	</main>
+	";
 	
 	}
 
 function informasi()
 	{
 	include('inc/inc.php');
-	include('title.php');
 	
-	?>
-	<section class="section berita">
-	<div class="container">
-		<div class="row">
-		<?php
+	echo"
+	<main id='main'>
+	<section id='about' class='text-left col-md-12'>
+	<div class='container'>
+		<div class='section-header'>
+		<h3>Pengumuman</h3>
+		</div>
+		
+		<div class='row'>
+		";
 		$a1=mysqli_query($conn,"select * from informasi2 order by id desc");
 		while($a=mysqli_fetch_array($a1))
 			{
 			echo"
-			<div class='col-lg-4 col-sm-6 mb-4'>
-			<article class='card shadow'>
-			<img class='rounded card-img-top' src='$a[img]' alt='post-thumb'>
-				<div class='card-body'>
-				<h4 class='card-title'>
-				<a class='text-dark' href='index.php?load=DETAILINFORMASI&id=$a[id]'>$a[judul]</a>
-				</h4>
-				<p class='cars-text'>";
-				$text=explode(' ',$a['text']);
-				for($i=0;$i<=30;$i++)
-					{
-					echo"$text[$i] ";
-					}
-				echo"
-				</p>
-				<a href='index.php?load=DETAILINFORMASI&id=$a[id]' class='btn btn-xs btn-primary'>Selengkapnya</a>
+			<div class='col-md-4 berita-item'>
+				<div class='konten'>
+				<img src='$a[img]'>
+					<div class='wrapper'>
+					<h4>$a[judul]</h4>
+					<p>";
+					$text=explode(' ',$a['text']);
+					for($i=0;$i<=15;$i++)
+						{
+						echo"$text[$i] ";
+						}
+					
+					echo"</p>
+					<a href='index.php?load=DETAILINFORMASI&id=$a[id]' class='btn btn-primary'>Baca</a>
+					</div>
 				</div>
-			</article>
-			</div>
-			";
+			</div>";
 			}
-		?>
+			
+		
+		echo"
 		</div>
 	</div>
 	</section>
+	</main>
+	";
+	?>
+
+	
 	<?php
 	}
 
@@ -805,63 +783,24 @@ function detailinformasi()
 		$tgl=$a['tgl'];
 		}
 	echo"
-	<section class='section detailBerita'>
+	<main id='main' class='text-center'>
+	<section id='about' class='text-left col-md-7 d-inline-block'>
 	<div class='container'>
-		<div class='row'>
-			<div class='col-lg-12'>
-			<h3 class='font-tertiary mb-5'>$judul</h3>
-			<p class='font-secondary'>Published on ".date("F d, Y", strtotime($tgl))." by 
-			<span class='text-primary'> $penulis</span>
-			</p>
-        
-				<div class='content'>
-				<img src='$img' class='cover rounded'>
-				<p>
-				$text
-				</p>
-				</div>
-			</div>
+	<header class='section-header'>
+	<h3>$judul</h3>
+	</header>
+		<div class='col-md-12 text-center'>
+		<img src='$img' class='rounded mb-4 w-100'>
 		</div>
+	
+	<p>
+	$text
+	</p>
+	<a href='index.php?load=INFORMASI'>[ kembali ]</a>
 	</div>
 	</section>
-
-	<section class='section berita'>
-	<div class='container'>
-		<div class='row'>
-			<div class='col-12 text-center'>
-			<h2 class='section-title'>Informasi Lainnya</h2>
-			</div>";
-			
-			$b1=mysqli_query($conn,"select * from informasi2 where id !='$id' order by id desc limit 3");
-			while($b=mysqli_fetch_array($b1))
-				{
-				echo"
-				<div class='col-lg-4 col-sm-6 mb-4 mb-lg-0'>
-				<article class='card shadow'>
-				<img class='rounded card-img-top' src='$b[img]' alt='post-thumb'>
-					<div class='card-body'>
-					<h4 class='card-title'>
-					<a class='text-dark' href='index.php?load=DETAILINFORMASI&id=$b[id]'>$b[judul]</a>
-					</h4>
-					<p class='cars-text'>";
-					$text=explode(' ',$b['text']);
-						for($i=0;$i<=30;$i++)
-						{
-						echo"$text[$i] ";
-						}
-					echo"
-					</p>
-					<a href='index.php?load=DETAILINFORMASI&id=$b[id]' class='btn btn-xs btn-primary'>Read More</a>
-					</div>
-				</article>
-				</div>
-				";
-				}
-
-		echo"
-		</div>
-	</div>
-	</section>";
+	</main>
+	";
 	
 	}
 
@@ -869,48 +808,46 @@ function galery()
 	{
 	$id=$_GET['id'];
 	include('inc/inc.php');
-	include('title.php');
+	
 	echo"
-	<section class='section'>
-	  <div class='container'>
-		<div class='row mb-5'>
-		  <div class='col-12'>
-			<div class='btn-group btn-group-toggle justify-content-center d-flex' data-toggle='buttons'>
-			<label class='btn btn-sm btn-primary active'>
-			<input type='radio' name='shuffle-filter' value='all' checked='checked' />Semua
-			</label>
-			";
+	<main id='main'>
+	<section id='portfolio' class='clearfix'>
+	<div class='container'>
+	<header class='section-header'>
+	<h3 class='section-title text-center'>Galeri</h3>
+	</header>
+		<div class='row'>
+			<div class='col-lg-12'>
+            <ul id='portfolio-flters'>
+			<li data-filter='*' class='filter-active'>All</li>";
 			$a1=mysqli_query($conn,"select * from kategori_galeri order by kategori");
 			while($a=mysqli_fetch_array($a1))
 				{
 				echo"
-				<label class='btn btn-sm btn-primary'>
-				<input type='radio' name='shuffle-filter' value='$a[id]' />$a[kategori]</label>
+				<li data-filter='.filter-$a[id]'>$a[kategori]</li>	
 				";
 				}
-			/*
-			<label class='btn btn-sm btn-primary'>
-			<input type='radio' name='shuffle-filter' value='siswa' />Siswa</label>
-			<label class='btn btn-sm btn-primary'>
-			<input type='radio' name='shuffle-filter' value='guru' />Guru</label>
-			*/
-
-			echo"
+			
+            echo"
+			</ul>
 			</div>
-		  </div>
 		</div>
-		<div class='row shuffle-wrapper'>
+
+		<div class='row portfolio-container'>
 		";
 		$b1=mysqli_query($conn,"select * from galeri where kat !=0 order by kat, id desc");
 		while($b=mysqli_fetch_array($b1))
 			{
 			echo"
-			<div class='col-lg-4 col-6 mb-4 shuffle-item' data-groups='[&quot;$b[kat]&quot;]'>
-				<div class='position-relative rounded hover-wrapper'>
-				<img src='$b[img]' alt='$b[judul]' class='img-fluid rounded w-100 d-block'>
-					<div class='hover-overlay'>
-						<div class='hover-content'>
-						<a class='btn btn-light btn-sm' href='$b[img]'>Lihat gambar</a>
+			<div class='col-lg-4 col-md-6 portfolio-item filter-$b[kat]'>
+				<div class='portfolio-wrap'>
+				<img src='$b[img]' class='img-fluid' alt=''>
+					<div class='portfolio-info'>
+					<h4><a href='#'>$b[judul]</a></h4>
+					<p>$b[judul]</p>
+						<div>
+						<a href='$b[img]' data-lightbox='portfolio' data-title='$b[judul]' class='link-preview' title='Preview'><i class='ion ion-eye'></i></a>
+						<a href='#' class='link-details' title='More Details'><i class='ion ion-android-open'></i></a>
 						</div>
 					</div>
 				</div>
@@ -918,110 +855,61 @@ function galery()
 			";
 			}
 			
-			/*
-			<div class='col-lg-4 col-6 mb-4 shuffle-item' data-groups='[&quot;siswa&quot;]'>
-				<div class='position-relative rounded hover-wrapper'>
-				<img src='images/galeri/galeri_1.jpg' alt='portfolio-image' class='img-fluid rounded w-100 d-block'>
-					<div class='hover-overlay'>
-						<div class='hover-content'>
-						<a class='btn btn-light btn-sm' href='images/galeri/galeri_1.jpg'>Lihat gambar</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class='col-lg-4 col-6 mb-4 shuffle-item' data-groups='[&quot;guru&quot;]'>
-				<div class='position-relative rounded hover-wrapper'>
-				<img src='images/galeri/galeri_2.jpg' alt='portfolio-image' class='img-fluid rounded w-100 d-block'>
-					<div class='hover-overlay'>
-						<div class='hover-content'>
-						<a class='btn btn-light btn-sm' href='images/galeri/galeri_2.jpg'>Lihat gambar</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class='col-lg-4 col-6 mb-4 shuffle-item' data-groups='[&quot;siswa&quot;]'>
-				<div class='position-relative rounded hover-wrapper'>
-				<img src='images/galeri/galeri_3.jpg' alt='portfolio-image' class='img-fluid rounded w-100 d-block'>
-					<div class='hover-overlay'>
-						<div class='hover-content'>
-						<a class='btn btn-light btn-sm' href='images/galeri/galeri_3.jpg'>Lihat gambar</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-			<div class='col-lg-4 col-6 mb-4 shuffle-item' data-groups='[&quot;guru&quot;]'>
-				<div class='position-relative rounded hover-wrapper'>
-				<img src='images/galeri/galeri_6.jpg' alt='portfolio-image' class='img-fluid rounded w-100 d-block'>
-					<div class='hover-overlay'>
-						<div class='hover-content'>
-						<a class='btn btn-light btn-sm' href='images/galeri/galeri_6.jpg'>Lihat gambar</a>
-						</div>
-					</div>
-				</div>
-			</div>
-				
-			<div class='col-lg-4 col-6 mb-4 shuffle-item' data-groups='[&quot;siswa&quot;]'>
-				<div class='position-relative rounded hover-wrapper'>
-				<img src='images/galeri/galeri_7.jpg' alt='portfolio-image' class='img-fluid rounded w-100 d-block'>
-					<div class='hover-overlay'>
-						<div class='hover-content'>
-						<a class='btn btn-light btn-sm' href='images/galeri/galeri_7.jpg'>Lihat gambar</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			*/
-
+		
 		echo"
-		</div>
-	  </div>
-	</section>";
+        </div>
+
+	</div>
+    </section>
+	</main>
+	";
+
+	
 	}
 
 function bukutamu()
 	{
 	$id=$_GET['id'];
 	include('inc/inc.php');
-	include('title.php');
 	echo"
-	<section class='section detailBerita'>
+	<main id='main' class='text-center'>
+	<section id='about' class='text-left col-md-7 d-inline-block'>
 	<div class='container'>
-		<div class='row'>
-			<div class='col-lg-12'>
-			<h3 class='font-tertiary mb-5'>Buku Tamu</h3>
-			<form action='index.php?load=BUKUTAMU2' method='post'>
-				<div class='form-group'>
-				<label for='nama'>Nama :</label>
-				<input type='text' class='form-control' required name='nama' id='nama'>
-				</div>
-						
-				<div class='form-group'>
-				<label for='telp'>No. Telp :</label>
-				<input type='number' class='form-control' required name='telp' id='telp'>
-				</div>
-				
-				<div class='form-group'>
-				<label for='alamat'>Alamat :</label>
-				<textarea name='alamat' class='form-control' required rows='5' id='alamat'></textarea>
-				</div>
-				
-				<div class='form-group'>
-				<label for='keperluan'>Keperluan :</label>
-				<textarea name='keperluan' class='form-control' required rows='5' id='keperluan'></textarea>
-				</div>
-				
-				<div class='form-group'>
-				<button class='btn btn-primary btn-sm'>Selanjutnya</button>
-				</div>
-			</form>
-			</div>
+	<header class='section-header'>
+	<h3>Buku Tamu</h3>
+	</header>
+	<p>
+	<form action='index.php?load=BUKUTAMU2' method='post'>
+		<div class='form-group'>
+		<label for='nama'>Nama :</label>
+		<input type='text' class='form-control' required name='nama' id='nama'>
 		</div>
+		
+		<div class='form-group'>
+		<label for='telp'>No. Telp :</label>
+		<input type='number' class='form-control' required name='telp' id='telp'>
+		</div>
+		
+		<div class='form-group'>
+		<label for='alamat'>Alamat :</label>
+		<textarea name='alamat' class='form-control' required rows='5' id='alamat'></textarea>
+		</div>
+		
+		<div class='form-group'>
+		<label for='keperluan'>Keperluan :</label>
+		<textarea name='keperluan' class='form-control' required rows='5' id='keperluan'></textarea>
+		</div>
+		
+		<div class='form-group'>
+		<button class='btn btn-primary'>Selanjutnya</button>
+		</div>
+		</form>
+	</p>
 	</div>
-	</section>";
-
+	</section>
+	</main>
+	";
+	
 	}
 
 function bukutamu2()
@@ -1031,72 +919,59 @@ function bukutamu2()
 	$alamat=$_POST['alamat'];
 	$keperluan=$_POST['keperluan'];
 	include('inc/inc.php');
-	include('title.php');
-
+	
 	echo"
-	<section class='section tamu'>
+	<main id='main' class='text-center'>
+	<section id='about' class='text-left col-md-12 d-inline-block'>
 	<div class='container'>
-		<div class='row'>
-			<div class='col-lg-12'>
-			<h3 class='font-tertiary mb-5'>Pilih jajaran yang ingin ditemui</h3>
-			<hr />
-			
-			<form action='index.php?load=bukutamuc' id='formTamu' method='post'>
-				<div class='col-md-12 text-center'>	
-				";
-				$a1=mysqli_query($conn,"select * from jajaran where jabatan like '%waka%' order by nama");
-				while($a=mysqli_fetch_array($a1))
-					{
-					echo"
-					<div class='col-lg-3 mb-4 d-inline-block jajaran-item' dipilih='tidak' onclick='pilih(this)' data-jajaran='$a[id]*$a[nama]'>
-					<article class='card shadow text-center jajaran'>
-						<div class='foto foto-2' style='background: url($a[img])'>
-						</div>
-					
-						<div class='card-body'>
-						<h4 class='card-title'>
-						<a class='text-dark' href='index.php?load=PROGRAM&id=$a[id]' target='_blank'>$a[nama]</a>
-						</h4>
-						<p class='cars-text'>$a[jabatan]</p>
-						</div>
-					</article>
+	<header class='section-header'>
+	<h3>Ingin bertemu dengan?</h3>
+	</header>
+	<form action='index.php?load=bukutamuc' method='post'>
+		<div id='waka' class='text-center col-md-12'>
+		";
+		$a1=mysqli_query($conn,"select * from jajaran where jabatan like '%waka%' order by nama");
+		while($a=mysqli_fetch_array($a1))
+			{
+			echo"
+			<div class='col-md-3 jajaran-item d-inline-block' onclick='pilih(this)' data-jajaran='$a[id]*$a[nama]' dipilih='tidak'>
+				<div class='konten'>
+				<img src='$a[img]'>
+					<div class='wrapper'>
+					<h4>$a[nama]</h4>
+					<p class='text-muted'>$a[jabatan]</p>
 					</div>
-
-					";
-					}
-					
-				echo"
 				</div>
-				
-				<div class='text-center mt-4'>
-				<input type='hidden' name='toSend' id='toSend'>
-				<input type='hidden' name='nama' value='$nama'>
-				<input type='hidden' name='alamat' value='$alamat'>
-				<input type='hidden' name='telp' value='$telp'>
-				<input type='hidden' name='keperluan' value='$keperluan'>
-				<button class='btn btn-primary'>Submit</button>
-				</div>
-				</form>
 			</div>
+			";
+			}
+			
+
+		echo"
 		</div>
+		<div class='mt-2 text-center'>
+		<input type='hidden' name='toSend' id='jajaran'>
+		<input type='hidden' name='nama' value='$nama'>
+		<input type='hidden' name='alamat' value='$alamat'>
+		<input type='hidden' name='telp' value='$telp'>
+		<input type='hidden' name='keperluan' value='$keperluan'>
+		<button class='btn btn-primary btn-lg'>Submit</button>
+		</div>
+		</form>
 	</div>
 	</section>
+	</main>
 	";
+	
 	?>
+	<script src="js/main.js"></script>
 	<script>
-	function pilih(that) {
-		$(".jajaran-item").attr('dipilih', 'tidak')
-		$(that).attr('dipilih', 'ya')
-		let selected = $(that).attr('data-jajaran')
-		$("#toSend").val(selected)
-	}
-	$("#formTamu").submit(() => {
-		let toSend = $("#toSend").val()
-		if(toSend == "") {
-			alert('Pilih jajaran yang akan ditemui!')
-			return false
+		function pilih(that) {
+			$(".jajaran-item").attr('dipilih', 'tidak')
+			$(that).attr('dipilih', 'ya')
+			let nama = $(that).attr('data-jajaran')
+			$("#jajaran").val(nama)
 		}
-	})
 	</script>
 	<?php
 	}
@@ -1128,28 +1003,29 @@ function bukutamu3()
 	{
 	$jajaran=$_GET['jajaran'];
 	include('inc/inc.php');
-	include('title.php');
 	echo"
-	<section class='section detailBerita'>
+	<main id='main' class='text-center'>
+	<section id='about' class='text-left col-md-7 d-inline-block'>
 	<div class='container'>
-		<div class='row'>
-			<div class='col-lg-12'>
-			<h3 class='font-tertiary mb-5'>Pesan Disampaikan!</h3>
-			<p>
-			Pesan disampaikan pada $jajaran
-			</p>
-			</div>
-		</div>
+	<header class='section-header'>
+	<h3>Pesan Disampaikan!</h3>
+	</header>
+	<p>
+	Pesan telah disampaikan pada $jajaran
+	</p>
 	</div>
 	</section>
+	</main>
 	";
+	
+	
 	}
 
 
 function jurRPL()
 	{
 	include('inc/inc.php');
-	include('title.php');
+	
 	
 	?>
 	<section class="section detailBerita">
