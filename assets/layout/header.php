@@ -90,9 +90,21 @@ while($skol=mysqli_fetch_array($skola))
 						<a class="nav-link link text-black dropdown-toggle display-4" href="#" aria-expanded="true" data-toggle="dropdown-submenu">
                         Jurusan</a>
 							<div class="dropdown-menu">
+							<?php
+							$jurusan1=mysqli_query($conn,"select * from jurusan order by id asc");
+							while($jurusan=mysqli_fetch_array($jurusan1))
+								{
+								echo"
+								<a class='text-black dropdown-item display-4' href='index.php?load=jurusan&id=$jurusan[id]' aria-expanded='false'>$jurusan[jurusan]</a>
+								";
+								}
+							?>
+							<!--
 							<a class="text-black dropdown-item display-4" href="index.php?load=jurmultimedia" aria-expanded="false">Multimedia</a>
 							<a class="text-black dropdown-item display-4" href="index.php?load=jurtatabusana" aria-expanded="false">Tata Busana</a>
 							<a class="text-black dropdown-item display-4" href="index.php?load=jurperhotelan" aria-expanded="false">Perhotelan</a><a class="text-black dropdown-item display-4" href="index.php?load=jurkecantikan" aria-expanded="true">Kecantikan</a>
+							-->
+
 							</div>
 							</li>
 							

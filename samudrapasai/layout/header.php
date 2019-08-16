@@ -168,7 +168,16 @@ include 'layout/sekolah.php';
               Jurusan
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="index.php?load=JURRPL">Rekayasa Perangkat Lunak</a>
+			<?php
+			$jurusan1=mysqli_query($conn,"select * from jurusan order by jurusan asc");
+			while($jurusan=mysqli_fetch_array($jurusan1))
+				{
+				echo"
+				<a class='dropdown-item' href='index.php?load=JURUSAN&id=$jurusan[id]'>$jurusan[jurusan]</a>
+				";
+				}
+			?>
+              <!--<a class="dropdown-item" href="index.php?load=JURRPL">Rekayasa Perangkat Lunak</a>-->
             </div>
           </li>
           <li class="nav-item"><a class="nav-link" href="https://onklas.com" target="_blank">PPDB</a></li>

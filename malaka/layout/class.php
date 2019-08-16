@@ -60,8 +60,8 @@ $loading=strtolower($load);
 	break;
 	
 
-	case 'jurrpl':
-	on::jurRPL($option);
+	case 'jurusan':
+	on::jurusan($option);
 	break;
 
 	default:

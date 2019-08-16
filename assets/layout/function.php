@@ -638,11 +638,11 @@ function jajaran()
 			<div class="team-item col-lg-3 col-md-6">
                 
 				<?php
-				$a1=mysqli_query($conn,"select * from jajaran where jabatan='KEPALA SEKOLAH'");
+				$a1=mysqli_query($conn,"select * from kepsek order by id desc limit 1");
 				while($a=mysqli_fetch_array($a1))
 					{
 					$namakepsek=$a['nama'];
-					$jabatankepsek=$a['jabatan'];
+					//$jabatankepsek=$a['jabatan'];
 					$imgkepsek=$a['img'];
 					}
 				?>
@@ -654,7 +654,7 @@ function jajaran()
                         <p class="mbr-fonts-style display-5"><?php echo $namakepsek; ?></p>
                     </div>
                     <div class="item-role px-2">
-                        <p><?php echo $jabatankepsek; ?></p>
+                        <p>KEPALA SEKOLAH</p>
                     </div>
                     
                 </div>
@@ -844,37 +844,63 @@ function detberita()
 	<?php
 	}
 
-function jurmultimedia()
+function jurusan()
 	{
+	include('inc/inc.php');
+	$id=$_GET['id'];
+	$a1=mysqli_query($conn,"select jajaran.id, jajaran.img, jajaran.nama, jurusan.* from jurusan, jajaran where jajaran.id=jurusan.ka_jurusan and jurusan.id='$id'");
+	while($a=mysqli_fetch_array($a1))
+		{
+		$img=$a['img'];
+		$nama=$a['nama'];
+		$jurusan=$a['jurusan'];
+		$keterangan=$a['keterangan'];
+		}
 	?>
-	<section class="engine"><a href="https://mobirise.info/h">how to create a web page for free</a></section><section class="team1 cid-rs6655Ptlg" id="team1-1g">
+	
+	<section class="team1 cid-rs6655Ptlg" id="team1-1g">
     
     <div class="container align-center">
-        <h2 class="pb-3 mbr-fonts-style mbr-section-title display-2">Program Studi Multimedia</h2>
+        <h2 class="pb-3 mbr-fonts-style mbr-section-title display-2"><?php echo $jurusan; ?></h2>
         <h3 class="pb-5 mbr-section-subtitle mbr-fonts-style mbr-light display-7">
-            Program Multimedia lunak merupakan program favorit di Sekolah ini</h3>
+            Jurusan <?php echo $jurusan; ?> </h3>
         <div class="row media-row">
             
         <div class="team-item col-lg-3 col-md-6">
                 <div class="item-image">
-                    <img src="assets/images/irongirls-376x405.jpg" alt="" title="">
+                    <img src="<?php echo"$img"; ?>" alt="" title="">
                 </div>
                 <div class="item-caption py-3">
                     <div class="item-name px-2">
-                        <p class="mbr-fonts-style display-5">Jamilah S.Pd</p>
+                        <p class="mbr-fonts-style display-5"><?php echo $nama; ?></p>
                     </div>
                     <div class="item-role px-2">
                         <p>Kepala Program Studi</p>
                     </div>
                     
                 </div>
-            </div></div>    
-    </div>
-	</section>
+            
+			</div>
+		</div>
+		
 
+		 
+
+    </div>
+	
+	<div class="container col-md-8">
+	<div class="col-md-12">
+		<p><?php echo $keterangan; ?></p>
+		 </div>
+	</div>
+	</section>
+	
+	<!--
 	<section class="tabs4 cid-rs67pknG1J" id="tabs4-1i">
     <div class="container">
         <div class="media-container-row mt-5 pt-3">
+
+
             <div class="mbr-figure" style="width: 52%;">
                 <img src="assets/images/tik-1-600x400.jpg" alt="Mobirise" title="">
             </div>
@@ -940,7 +966,9 @@ function jurmultimedia()
             </div>
         </div>
     </div>
-	</section>
+	</section>-->
+	
+	
 	<?php
 	}
 

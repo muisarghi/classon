@@ -7,27 +7,30 @@
         <div class="row">
 
           <div class="col-lg-6 col-md-6 footer-info">
-						<h3>SMAN.ID</h3>
-						<img src="img/galeri/tutwuri.png" class="rounded-circle tutwuri">
+			<h2><?php echo $namaskol; ?></h2>
+			<img src="<?php echo $logoskol; ?>" class="rounded-circle tutwuri">
             <p>
-							Jalan Pasar Besar No. 55, Surabaya<br />
-							Jawa Timur (60242)
-						</p>
+			<?php
+			echo"$alamatskol, $kabupatenskol <br>$provinsiskol ($kodeposskol)";		
+			?>
+			</p>
           </div>
 
           <div class="col-lg-6 col-md-6 footer-contact">
             <h4>Info Kontak</h4>
             <p>
-              <strong>Phone:</strong> 031-123456<br>
-              <strong>Email:</strong> halo@smanegeri.id<br>
+              <strong>Phone:</strong> <?php echo $telpskol; ?><br>
+              <strong>Email:</strong> <?php echo $emailskol; ?><br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="<?php echo ""; ?>" class="twitter"><i class="fa fa-twitter"></i></a>
+              <a href="<?php echo "$fb_pathskol"; ?>" class="facebook"><i class="fa fa-facebook"></i></a>
+              <a href="<?php echo "$instagram_pathskol"; ?>" class="instagram"><i class="fa fa-instagram"></i></a>
+              <!--
+			  <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
               <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+			  -->
             </div>
 
           </div>
@@ -38,7 +41,7 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong>SMAN.ID</strong>. All Rights Reserved
+        &copy; Copyright <strong><?php echo $namaskol; ?></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!--
@@ -46,8 +49,9 @@
           You can delete the links only if you purchased the pro version.
           Licensing information: https://bootstrapmade.com/license/
           Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
+		  Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        
       </div>
     </div>
   </footer><!-- #footer -->

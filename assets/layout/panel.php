@@ -31,8 +31,8 @@ $load=$_GET['load'];
 	case 'detberita':
 	on::detberita($option);
 	break;
-	case 'jurmultimedia':
-	on::jurmultimedia($option);
+	case 'jurusan':
+	on::jurusan($option);
 	break;
 	case 'jurtatabusana':
 	on::jurtatabusana($option);

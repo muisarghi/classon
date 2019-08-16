@@ -1,6 +1,6 @@
 <?php
 ob_start();
-@ini_set('display_errors', 'on');
+@ini_set('display_errors', 'off');
 
 include 'inc/inc.php';
 $skola=mysqli_query($conn,"select * from sekolah order by npsn desc limit 1");
@@ -99,11 +99,20 @@ while($skol=mysqli_fetch_array($skola))
 					</li>
 					<li class="drop-down"><a href="#">Jurusan</a>
             <ul>
-							<li><a href="index.php?load=JURRPL">IPA</a></li>
-							<li><a href="jurusan.html">IPS</a></li>
+					<!--<li><a href="index.php?load=JURRPL">IPA</a></li>
+					<li><a href="jurusan.html">IPS</a></li>-->
+					<?php
+					$jurusan1=mysqli_query($conn,"select * from jurusan order by jurusan asc");
+					while($jurusan=mysqli_fetch_array($jurusan1))
+						{
+						echo"
+						<li><a href='index.php?load=JURUSAN&id=$jurusan[id]'>$jurusan[jurusan]</a>
+						";
+						}
+					?>
             </ul>
           </li>
-          <li><a href="#">PPDB</a></li>
+          <li><a href="https://onklas.com">PPDB</a></li>
 					<li><a href="https://onklas.com">E-Learning</a></li>
 					<li><a href="https://onklas.com">Login</a></li>
         </ul>

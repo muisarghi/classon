@@ -104,7 +104,17 @@ while($skol=mysqli_fetch_array($skola))
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">Jurusan</a>
           <div class="dropdown-menu">
-            <a href="index.php?load=jurRPL" class="dropdown-item">Rekayasa Perangkat Lunak</a>
+            <?php
+			$jurusan1=mysqli_query($conn,"select * from jurusan order by jurusan asc");
+			while($jurusan=mysqli_fetch_array($jurusan1))
+				{
+				echo"
+				<a href='index.php?load=JURUSAN&id=$jurusan[id]' class='dropdown-item'>$jurusan[jurusan]</a>
+				";
+				}
+			?>
+			<!--<a href="index.php?load=jurRPL" class="dropdown-item">Rekayasa Perangkat Lunak</a>
+			-->
           </div>
         </li>
         <li class="nav-item active"><a class="nav-link" href="https://onklas.com">PPDB</a></li>

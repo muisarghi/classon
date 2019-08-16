@@ -187,7 +187,7 @@ function index()
 			<!-- slider-item -->
 			<div class="text-center testimonial-content">
 			<?php
-			$kepseka=mysqli_query($conn, "select * from jajaran where jabatan like '%kepala sekolah%'");
+			$kepseka=mysqli_query($conn, "select * from kepsek order by id desc limit 1");
 			while($kepsek=mysqli_fetch_array($kepseka))
 				{
 				$mnama=$kepsek['nama'];
@@ -365,11 +365,11 @@ function jajaran()
 					<div class="col-md-12 text-center">
 						
 						<?php
-						$a1=mysqli_query($conn,"select * from jajaran where jabatan like '%kepala sekolah%'");
+						$a1=mysqli_query($conn,"select * from kepsek order by id desc limit 1");
 						while($a=mysqli_fetch_array($a1))
 							{
 							$namakepsek=$a['nama'];
-							$jabatankepsek=$a['jabatan'];
+							$jabatankepsek="KEPALA SEKOLAH";
 							$imgkepsek=$a['img'];
 							}
 						?>
@@ -1010,36 +1010,32 @@ function bukutamu3()
 	}
 
 
-function jurRPL()
+function jurusan()
 	{
 	include('inc/inc.php');
 	include('title.php');
-	
+	$id=$_GET['id'];
+	$a1=mysqli_query($conn,"select jajaran.id, jajaran.img, jajaran.nama, jurusan.* from jurusan, jajaran where jajaran.id=jurusan.ka_jurusan and jurusan.id='$id'");
+	while($a=mysqli_fetch_array($a1))
+		{
+		$img=$a['img'];
+		$nama=$a['nama'];
+		$jurusan=$a['jurusan'];
+		$keterangan=$a['keterangan'];
+		}
 	?>
 	<section class="section detailBerita">
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h3 class="font-tertiary mb-5">Rekayasa Perangkat Lunak</h3>
+        <h3 class="font-tertiary mb-5"><?php echo $jurusan; ?></h3>
         <div class="content">
 					<div class="text-center text-muted">
-						<img src="img/tim/pichai.jpg" class="fotoProfil rounded-circle"><br />
-						Sundar Pichai - Kaprog Rekayasa Perangkat Lunak
+						<img src="<?php echo $img; ?>" class="fotoProfil rounded-circle"><br />
+						<?php echo"$nama - Kaprog $jurusan "; ?>
 					</div>
-						<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
-					</p>
 					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
-					</p>
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
+					<?php echo $keterangan; ?>	
 					</p>
         </div>
       </div>

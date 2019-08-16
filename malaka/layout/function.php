@@ -159,7 +159,22 @@ function index()
 		</div>
 	</div>
     </section>
+	";
 	
+	$kepsek1=mysqli_query($conn,"select * from kepsek order by id desc limit 1");
+	while($kepsek=mysqli_fetch_array($kepsek1))
+		{
+		$namakeps=$kepsek['nama'];
+		$imgkeps=$kepsek['img'];
+		}
+
+	$waka1=mysqli_query($conn,"select * from jajaran where jabatan like '%waka%' order by id asc limit 1");
+	while($waka=mysqli_fetch_array($waka1))
+		{
+		$namawaka=$waka['nama'];
+		$imgwaka=$waka['img'];
+		}
+	echo"
 	<section id='team'>
 	<div class='container text-center'>
 		<div class='section-header'>
@@ -171,10 +186,10 @@ function index()
 				
 				<div class='col-md-3 wow fadeInUp d-inline-block'>
 					<div class='member'>
-					<img src='img/tim/elon.jpg' class='img-fluid foto' />
+					<img src='$imgkeps' class='img-fluid foto' />
 						<div class='member-info'>
 							<div class='member-info-content'>
-							<h4>Elon Musk</h4>
+							<h4>$namakeps</h4>
 							<span>Kepala Sekolah</span>
 								<div class='social'>
 								<a href=''><i class='fa fa-twitter'></i></a>
@@ -189,10 +204,10 @@ function index()
 				
 				<div class='col-md-3 wow fadeInUp d-inline-block'>
 					<div class='member'>
-					<img src='img/tim/zuck.jpg' class='img-fluid foto' />
+					<img src='$imgwaka' class='img-fluid foto' />
 						<div class='member-info'>
 							<div class='member-info-content'>
-							<h4>Mark Zuckerberg</h4>
+							<h4>$namawaka</h4>
 							<span>Wakil Kepala</span>
 								<div class='social'>
 								<a href=''><i class='fa fa-twitter'></i></a>
@@ -206,7 +221,7 @@ function index()
 				</div>
 				
 				<div class='col-md-12 text-center'>
-				<a href='jajaran.html' class='btn btn-primary'>Selengkapnya</a>
+				<a href='index.php?load=JAJARAN' class='btn btn-primary'>Selengkapnya</a>
 				</div>
 			</div>
 
@@ -376,7 +391,7 @@ function sambutan()
 
 function jajaran()
 	{
-	@ini_set('display_errors', 'on');
+	@ini_set('display_errors', 'off');
 	include('inc/inc.php');
 	
 	echo"
@@ -391,11 +406,11 @@ function jajaran()
 					<div id='kepala' class='text-center col-md-12'>
 						<div class='col-md-4 jajaran-item d-inline-block'>
 							<div class='konten'>";
-							$a1=mysqli_query($conn,"select * from jajaran where jabatan like '%kepala sekolah%'");
+							$a1=mysqli_query($conn,"select * from kepsek order by id desc limit 1");
 							while($a=mysqli_fetch_array($a1))
 								{
 								$namakepsek=$a['nama'];
-								$jabatankepsek=$a['jabatan'];
+								//$jabatankepsek=$a['jabatan'];
 								$imgkepsek=$a['img'];
 								}
 							echo"
@@ -421,7 +436,7 @@ function jajaran()
 								<div class='wrapper'>
 								<h4>$b[nama]</h4>
 								<p class='text-muted'>$b[jabatan]</p>
-								<a href='#' class='btn btn-primary'>Lihat program</a>
+								<a href='index.php?load=PROGRAM&id=$b[id]' class='btn btn-primary'>Lihat program</a>
 								</div>
 							</div>
 						</div>
@@ -601,7 +616,6 @@ function jajaran()
 function program()
 	{
 	include('inc/inc.php');
-	include('title.php');
 	$id=$_GET['id'];
 	$a1=mysqli_query($conn,"select * from jajaran where id='$id'");
 	while($a=mysqli_fetch_array($a1))
@@ -611,26 +625,26 @@ function program()
 		$jabatan=$a['jabatan'];
 		$program=$a['program'];
 		}
-	?>
-	<section class="section detailBerita">
-		<div class="container">
-			<div class="row">
-			  <div class="col-lg-12">
-				<div class="content">
-					<div class="text-center mt-4">
-					<img src="<?php echo"$img"; ?>" class="fotoProfil rounded-circle">
-					<h4><?php echo $nama; ?> </h4>
-					<p class="text-muted"><?php echo $jabatan; ?></p>
-					</div>
-					
-					<p>
-					<?php echo $program; ?>
-					</p>
+	echo"
+	<main id='main' class='text-center'>
+		<section id='about' class='text-left col-md-7 d-inline-block'>
+			<div class='container'>
+			<header class='section-header'>
+			<h3>Program $jabatan</h3>
+			</header>
+				<div class='col-md-12 text-center'>
+				<img src='$img' class='rounded-circle mb-4 foto'>
+				<p class='text-muted'>$nama - $jabatan</p>
 				</div>
+			<p>
+			$program
+			</p>
 			</div>
-		</div>
-	</div>
-	</section>
+		</section>
+	</main>
+	";
+	?>
+	
 	<?php
 	}
 
@@ -1022,43 +1036,40 @@ function bukutamu3()
 	}
 
 
-function jurRPL()
+function jurusan()
 	{
 	include('inc/inc.php');
+	$id=$_GET['id'];
+	$a1=mysqli_query($conn,"select jajaran.id, jajaran.img, jajaran.nama, jurusan.* from jurusan, jajaran where jajaran.id=jurusan.ka_jurusan and jurusan.id='$id'");
+	while($a=mysqli_fetch_array($a1))
+		{
+		$img=$a['img'];
+		$nama=$a['nama'];
+		$jurusan=$a['jurusan'];
+		$keterangan=$a['keterangan'];
+		}
+	echo"
+	<main id='main' class='text-center'>
+	<section id='about' class='text-left col-md-7 d-inline-block'>
+	<div class='container'>
+	<header class='section-header'>
+	<h3>Jurusan $jurusan</h3>
+	</header>
+		
+		<div class='col-md-12 text-center'>
+		<img src='$img' class='rounded-circle mb-4 foto'>
+		<p class='text-muted'>$nama - Kepala Jurusan $jurusan</p>
+		</div>
 	
-	
-	?>
-	<section class="section detailBerita">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <h3 class="font-tertiary mb-5">Rekayasa Perangkat Lunak</h3>
-        <div class="content">
-					<div class="text-center text-muted">
-						<img src="img/tim/pichai.jpg" class="fotoProfil rounded-circle"><br />
-						Sundar Pichai - Kaprog Rekayasa Perangkat Lunak
-					</div>
-						<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
-					</p>
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
-					</p>
-					<p>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ex perspiciatis repellat est quod soluta quam, quae eveniet, non delectus animi rerum obcaecati culpa odio, minima nemo esse incidunt ipsa reprehenderit?
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas earum iusto sint voluptatem odio! Facere qui ratione nemo excepturi molestiae, debitis inventore magnam molestias exercitationem, doloribus dolorem iste quae impedit.
-						Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet laborum reprehenderit voluptatem laudantium dolore, dolores vitae corrupti nesciunt corporis quam ipsa harum, aliquid vel obcaecati. Maxime rem cum similique est.
-					</p>
-        </div>
-      </div>
-    </div>
-  </div>
+	<p>
+	$keterangan
+	</p>
+	</div>
 	</section>
-	<?php
+	</main>
+	";
+	
+	
 	}
 
 

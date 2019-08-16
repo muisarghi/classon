@@ -768,11 +768,11 @@ function jajaran()
 		<div class="container">
 
 		<?php
-		$a1=mysqli_query($conn,"select * from jajaran where jabatan like '%kepala sekolah%'");
+		$a1=mysqli_query($conn,"select * from kepsek order by id desc limit 1");
 		while($a=mysqli_fetch_array($a1))
 			{
 			$namakepsek=$a['nama'];
-			$jabatankepsek=$a['jabatan'];
+			$jabatankepsek="KEPALA SEKOLAH";
 			$imgkepsek=$a['img'];
 			}
 		?>
@@ -793,7 +793,7 @@ function jajaran()
 						  </h2>
 						</div>
 						<div class="card-date">
-						  <span class="date-b">Kepala Sekolah</span>
+						  <span class="date-b">KEPALA SEKOLAH</span>
 						</div>
 					  </div>
 					</div>
@@ -1926,10 +1926,18 @@ function bukutamu3()
 	}
 
 
-function jurRPL()
+function jurusan()
 	{
 	include('inc/inc.php');
-	
+	$id=$_GET['id'];
+	$a1=mysqli_query($conn,"select jajaran.id, jajaran.img, jajaran.nama, jurusan.* from jurusan, jajaran where jajaran.id=jurusan.ka_jurusan and jurusan.id='$id'");
+	while($a=mysqli_fetch_array($a1))
+		{
+		$img=$a['img'];
+		$nama=$a['nama'];
+		$jurusan=$a['jurusan'];
+		$keterangan=$a['keterangan'];
+		}
 	?>
 	
 	<section class="intro-single">
@@ -1937,7 +1945,7 @@ function jurRPL()
 		<div class="row">
 			<div class="col-md-12 col-lg-8">
 				<div class="title-single-box">
-				<h1 class="title-single">Rekayasa Perangkat Lunak</h1>
+				<h1 class="title-single"><?php echo $jurusan; ?></h1>
 				</div>
 			</div>
 			
@@ -1948,7 +1956,7 @@ function jurRPL()
 			<a href="index.php">Home</a>
 			</li>
 			<li class="breadcrumb-item active" aria-current="page">
-			Rekayasa Perangkat Lunak
+			<?php echo $jurusan; ?>
             </li>
             </ol>
 			</nav>
@@ -1963,26 +1971,12 @@ function jurRPL()
 			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
 				<div class="post-content color-text-a mt-4">
 					<div class="text-center mb-4">
-					<img src="img/tim/pichai.jpg" class="fotoProfil rounded-circle">
-					<h4 class="mt-4 text-muted">Sundar Pichai - Kaprog Rekayasa Perangkat Lunak</h4>
+					<img src="<?php echo $img; ?>" class="fotoProfil rounded-circle">
+					<h4 class="mt-4 text-muted"><?php echo "$nama  - Kaprog $jurusan";?></h4>
 					</div>
 					
 				<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum animi vitae eius nobis voluptatum aut est pariatur, magni sapiente beatae eveniet quis molestiae numquam molestias ad iure laborum ipsa ab.
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque dolorum eveniet assumenda, itaque natus voluptatibus perferendis corrupti, explicabo sint et sed accusamus omnis eligendi expedita, voluptatem quasi. Nam, voluptate enim.
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia illum sapiente asperiores dicta itaque expedita consequuntur deleniti quo suscipit, aut doloremque dolore ipsa labore, quasi alias fugit totam. Quam, sequi!
-				</p>
-				
-				<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum animi vitae eius nobis voluptatum aut est pariatur, magni sapiente beatae eveniet quis molestiae numquam molestias ad iure laborum ipsa ab.
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque dolorum eveniet assumenda, itaque natus voluptatibus perferendis corrupti, explicabo sint et sed accusamus omnis eligendi expedita, voluptatem quasi. Nam, voluptate enim.
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia illum sapiente asperiores dicta itaque expedita consequuntur deleniti quo suscipit, aut doloremque dolore ipsa labore, quasi alias fugit totam. Quam, sequi!
-				</p>
-				
-				<p>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum animi vitae eius nobis voluptatum aut est pariatur, magni sapiente beatae eveniet quis molestiae numquam molestias ad iure laborum ipsa ab.
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque dolorum eveniet assumenda, itaque natus voluptatibus perferendis corrupti, explicabo sint et sed accusamus omnis eligendi expedita, voluptatem quasi. Nam, voluptate enim.
-				Lorem ipsum dolor sit amet consectetur, adipisicing elit. Mollitia illum sapiente asperiores dicta itaque expedita consequuntur deleniti quo suscipit, aut doloremque dolore ipsa labore, quasi alias fugit totam. Quam, sequi!
+				<?php echo $keterangan; ?>
 				</p>
 				</div>
 			</div>
