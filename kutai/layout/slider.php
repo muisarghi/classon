@@ -1,8 +1,22 @@
+<?php
+include('inc/inc.php'); 
+?>
 <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
-        <img src="img/galeri/galeri_3.jpg" alt="" title="#slider-direction-1" />
-        <img src="img/galeri/galeri_10.jpg" alt="" title="#slider-direction-1" />
+		<?php
+		$slides=mysqli_query($conn,"select * from banner order by id desc limit 2");
+		$no=1;
+		while($slide=mysqli_fetch_array($slides))
+			{
+			echo"
+			<img src='$slide[img]' alt='' title='#slider-direction-$no' />
+			";
+			$no++;
+			}
+		?>
+        <!--<img src="img/galeri/galeri_3.jpg" alt="" title="#slider-direction-1" />
+        <img src="img/galeri/galeri_10.jpg" alt="" title="#slider-direction-1" />-->
       </div>
 
       <!-- direction 1 -->
@@ -57,5 +71,5 @@
   
   <!-- Button to Buku Tamu -->
   <div class="text-center mt-4 mb-4">
-    <a href="tamu.html" class="btn btn-warning btn-lg">Buku Tamu</a>
+    <a href="index.php?load=BUKUTAMU" class="btn btn-warning btn-lg">Buku Tamu</a>
   </div>

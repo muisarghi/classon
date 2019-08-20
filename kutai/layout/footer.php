@@ -8,17 +8,24 @@
               <img src="img/tutwuri.jpeg" style="width: 100%" class="rounded-circle">
             </div>
             <div class="col-md-9">
-              <h6>SMA Negeri Indonesia</h6>
+              <h6><?php echo $namaskol; ?></h6>
               <p>
-                Jl. Pasar Besar No. 55, Surabaya, Jawa Timur<br />
-                (60255)
+			  <?php 
+			  echo"
+			  $alamatskol, $kabupatenskol
+			  <br>
+			  $provinsiskol ($kodeposskol)
+			  ";
+			  ?>
+                
               </p>
             </div>
           </div>
         </div>
         <div class="col-md-6">
           <h6>INFO KONTAK</h5>
-          <p>Telp : 031-123456</p>
+          <p>Telp : <?php echo $telpskol; ?></p>
+		  <p>Email: <?php echo $emailskol; ?></p>
         </div>
       </div>
     </div>
@@ -34,18 +41,18 @@
         <div class="col-md-4">
           <ul class="list-inline social-buttons">
             <li class="list-inline-item">
-              <a href="#">
+              <a href="<?php echo "-";?>">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
+              <a href="<?php echo "$fb_pathskol";?>">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
             <li class="list-inline-item">
-              <a href="#">
-                <i class="fab fa-linkedin-in"></i>
+              <a href="<?php echo "$instagram_pathskol";?>">
+                <i class="fab fa-instagram"></i>
               </a>
             </li>
           </ul>

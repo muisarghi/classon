@@ -32,7 +32,7 @@ while($skol=mysqli_fetch_array($skola))
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SMA Negeri Indonesia</title>
+  <title><?php echo $namaskol; ?></title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -51,7 +51,7 @@ while($skol=mysqli_fetch_array($skola))
   <!-- Custom styles for this template -->
   <link href="css/agency.css" rel="stylesheet">
 
-  <link rel="shortcut icon" href="img/tutwuri.png" type="image/png">
+  <link rel="shortcut icon" href="<?php echo $logoskol; ?>" type="image/png">
 
 </head>
 
@@ -61,7 +61,7 @@ while($skol=mysqli_fetch_array($skola))
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="#page-top">
-        <img src="img/tutwuri.jpeg" style="width: 25%">
+        <img src="<?php echo $logoskol; ?>" style="width: 25%">
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -90,7 +90,7 @@ while($skol=mysqli_fetch_array($skola))
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informasi</a>
             <div class="dropdown-menu">
-              <a href="index.php?load=PENGUMUMAN" class="dropdown-item">Pengumuman</a>
+              <a href="index.php?load=INFORMASI" class="dropdown-item">Pengumuman</a>
               <a href="index.php?load=GALERY" class="dropdown-item">Galeri</a>
               <a href="index.php?load=BUKUTAMU" class="dropdown-item">Buku Tamu</a>
             </div>
