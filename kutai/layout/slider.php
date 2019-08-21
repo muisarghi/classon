@@ -1,5 +1,6 @@
 <?php
-include('inc/inc.php'); 
+include('inc/inc.php');
+include('sekolah.php');
 ?>
 <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
@@ -31,7 +32,7 @@ include('inc/inc.php');
                 </div>
                 <!-- layer 2 -->
                 <div class="layer-1-2 wow slideInUp" data-wow-duration="2s" data-wow-delay=".1s">
-                  <h1 class="title2">SMA Negeri Indonesia</h1>
+                  <h1 class="title2"><?php echo $namaskol; ?></h1>
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
@@ -58,8 +59,8 @@ include('inc/inc.php');
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                  <a class="ready-btn right-btn page-scroll" href="#services">See Services</a>
-                  <a class="ready-btn page-scroll" href="#about">Learn More</a>
+                  <a class="ready-btn right-btn page-scroll" href="#profil">Profile</a>
+                  <a class="ready-btn page-scroll" href="#portfolio">Learn More</a>
                 </div>
               </div>
             </div>

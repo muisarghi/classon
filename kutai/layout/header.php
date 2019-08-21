@@ -70,7 +70,7 @@ while($skol=mysqli_fetch_array($skola))
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Home</a>
+            <a class="nav-link js-scroll-trigger" href="index.php">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Profil</a>

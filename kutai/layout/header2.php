@@ -75,7 +75,15 @@ while($skol=mysqli_fetch_array($skola))
             <a class="nav-link js-scroll-trigger" href="index.php">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link active js-scroll-trigger dropdown-toggle" href="#" data-toggle="dropdown">Profil</a>
+            <a class="nav-link 
+			 
+			<?php echo"----".$_GET['load']."";
+			if($_GET['load']=='PROFILE' or $_GET['load']=='SEJARAH' or $_GET['load']=='VISI' or $_GET['load']=='TUJUAN' or $_GET['load']=='SAMBUTAN' or $_GET['load']=='JAJARAN')
+				{echo" active ";}
+			else
+				{echo" ";}
+			?>
+			js-scroll-trigger dropdown-toggle" href="#" data-toggle="dropdown">Profil</a>
             <div class="dropdown-menu">
               <a href="index.php?load=PROFILE" class="dropdown-item">Profile</a>
               <a href="index.php?load=SEJARAH" class="dropdown-item">Sejarah</a>
@@ -86,10 +94,24 @@ while($skol=mysqli_fetch_array($skola))
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="index.php?load=BERITA">Berita</a>
+            <a class="nav-link 
+			<?php 
+			if($_GET['load']=='BERITA')
+				{echo" active ";}
+			else
+				{echo" ";}
+			?>
+			js-scroll-trigger" href="index.php?load=BERITA">Berita</a>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Informasi</a>
+            <a href="#" class="nav-link
+			<?php
+			if($_GET['load']=='INFORMASI' or $_GET['load']=='GALERY' or $_GET['load']=='BUKUTAMU')
+				{echo" active ";}
+			else
+				{echo" ";}
+			?>
+			dropdown-toggle" data-toggle="dropdown">Informasi</a>
             <div class="dropdown-menu">
               <a href="index.php?load=INFORMASI" class="dropdown-item">Pengumuman</a>
               <a href="index.php?load=GALERY" class="dropdown-item">Galeri</a>
@@ -97,7 +119,14 @@ while($skol=mysqli_fetch_array($skola))
             </div>
           </li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Jurusan</a>
+            <a href="#" class="nav-link 
+			<?php
+			if($_GET['load']=='JURUSAN')
+				{echo" active ";}
+			else
+				{echo" ";}
+			?>
+			dropdown-toggle" data-toggle="dropdown">Jurusan</a>
             <div class="dropdown-menu">
               <!--<a href="jurusan.html" class="dropdown-item">Rekayasa Perangkat Lunak</a>-->
 			  <?php
