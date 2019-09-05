@@ -1,0 +1,62 @@
+.section.berita article img { height: 200px; }
+.detailBerita {
+    width: 60% !important;
+    margin-left: 20%;
+    margin-top: 80px;
+}
+.detailBerita .content .cover { width: 100%; }
+.fotoProfil {
+    width: 200px;
+    height: 200px;
+}
+.card.jajaran .foto {
+    width: 100% !important;
+    height: 360px !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}
+.card.jajaran .foto-2 { height: 250px !important; }
+#guru .foto-2 { height: 150px !important; }
+#guru .card-title { font-size: 18px !important; }
+
+.section.tamu {
+    width: 80%;
+    margin-top: 80px;
+    margin-left: 10%;
+}
+.section.tamu .jajaran-item {
+    width: 24.5%;
+    cursor: pointer;
+    padding: 0px;
+}
+.section.tamu .jajaran-item[dipilih=ya] {
+    border: 6px solid #46468f;
+}
+
+#footer .social {
+    display: inline-block;
+    margin-right: 15px;
+}
+#footer a { color: #aaa; }
+
+@media (max-width: 720px) {
+    .bg-shape { display: none !important; }
+}
+@media (max-width: 480px) {
+    img[alt=illustrations] { display: none !important; }
+    #footer img[src='images/tutwuri.jpeg'] {
+        width: 50% !important;
+        height: 150px !important;
+        margin-left: 25%;
+        margin-bottom: 50px;
+    }
+    .detailBerita {
+        width: 95% !important;
+        margin-left: 2.5%;
+    }
+    .detailBerita h3 { font-size: 200%; }
+    .navbar-brand.h3 { font-size: 170%; }
+    #formTamu .jajaran-item {
+        width: 100%;
+    }
+}

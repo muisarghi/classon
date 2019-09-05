@@ -1,0 +1,16 @@
+.blog-section {
+    margin-top: -30px;
+}
+.blog-section ul {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.blog-section ul li {
+    list-style: inherit;
+}
+.blog-section .content-text { font-size: 110%; }
+.fotoProfil {
+    width: 200px !important;
+    height: 200px !important;
+    border-radius: 290px !important;
+}
